@@ -1,432 +1,264 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>relax heal - 上質な癒しで、健康を守る</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>relax heal | 医療監修の"正しい心地"を、毎日に。</title>
+  <meta name="description" content="ラグジュアリークッションブランドrelax heal。医療監修のゲルクッションで、座る時間を上質に。" />
+  <!-- OGP / Twitter -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="relax heal | 医療監修の"正しい心地""/>
+  <meta property="og:description" content="ゲルクッションで、姿勢と時間を美しく。"/>
+  <meta property="og:image" content="/assets/og/og.jpg"/>
+  <meta property="og:url" content="https://example.com"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="relax heal"/>
+  <meta name="twitter:description" content="医療監修のラグジュアリークッション"/>
+  <!-- Preload KV -->
+  <link rel="preload" as="image" href="/assets/kv/relaxheal_kv.webp" imagesrcset="/assets/kv/relaxheal_kv.webp 1x"/>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- ========== ナビゲーションバー ========== -->
-<header class="header">
-    <div class="container">
-        <div class="logo">
-            <h1>relax heal</h1>
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#story">ブランドストーリー</a></li>
-                <li><a href="#nakamura">中村先生について</a></li>
-                <li><a href="#media">メディア実績</a></li>
-                <li><a href="#products">主力商品</a></li>
-                <li><a href="#faq">よくあるご質問</a></li>
-            </ul>
-        </nav>
+<!-- ========== HERO: キービジュアル + 一次CTA ========== -->
+<header class="section hero">
+  <div class="container grid-2">
+    <div>
+      <h1>座る、という贅沢。</h1>
+      <p class="small">医療監修の"正しい心地"を、毎日に。</p>
+      <div style="margin-top:16px">
+        <a class="btn btn-primary focus-ring" target="_blank"
+           href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994"
+           aria-label="Amazon公式ストアで商品を見る">Amazon公式ストアで見る</a>
+        <div class="small" style="margin-top:8px">最短30秒で購入・レビュー多数</div>
+      </div>
     </div>
+    <div class="kv">
+      <!-- KV 静止画（後で差し替え） -->
+      <img src="/assets/kv/relaxheal_kv.webp" alt="relax heal キービジュアル（仮）" width="1440" height="960" loading="eager" decoding="sync" />
+    </div>
+  </div>
 </header>
 
-<!-- ========== ファーストビュー（ヒーロー） ========== -->
-<section class="hero">
-    <div class="hero-content">
-        <h2>座る時間が長いほど健康が損なわれる現代で</h2>
-        <p>品質の良い、正しいクッションを選ぶ</p>
-        <p class="hero-subtitle">医療専門家が監修した、ラグジュアリーな癒し</p>
-        <div class="hero-cta">
-            <a href="#products" class="btn btn-primary">詳しく見る</a>
+<!-- ========== QUICK PROOF: 監修・メディア・レビューの証拠化 ========== -->
+<section class="section">
+  <div class="container">
+    <div class="grid-3">
+      <div class="card">
+        <div class="section-head"><strong>監修</strong></div>
+        <ul class="small">
+          <li>圧分散プロファイルの設計監修</li>
+          <li>ゲル硬度レンジと厚み基準</li>
+          <li>尾骨圧の軽減設計</li>
+        </ul>
+        <p class="small" style="margin-top:8px"><em>※詳細は下部「監修者」セクションを参照</em></p>
+      </div>
+      <div class="card">
+        <div class="section-head"><strong>メディア実績</strong></div>
+        <div class="logo-strip small">
+          <!-- 後でロゴ画像を差し込み -->
+          <span>バズるの泉（TV）</span>
+          <span>ヒットの予感（雑誌）</span>
+          <span>YouTube ばばし</span>
         </div>
-    </div>
-    <div class="hero-visual">
-        <!-- 動画またはイメージが入る -->
-        <div class="video-placeholder">
-            <img src="assets/images/products/placeholder-hero.jpg" alt="relax heal">
+        <p class="small" style="margin-top:8px"><em>※露出年月・媒体ロゴは後で挿入</em></p>
+      </div>
+      <div class="card">
+        <div class="section-head"><strong>レビュー</strong></div>
+        <div class="review-metrics">
+          <div>平均★4.5</div>
+          <div>1,200+件</div>
+          <div>最新: 2025-10</div>
         </div>
+        <p class="small" style="margin-top:8px"><em>※数値は仮。後で更新</em></p>
+      </div>
     </div>
+    <div class="section-cta">
+      <a class="btn btn-ghost focus-ring" target="_blank"
+         href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994">Amazonで詳細を見る</a>
+    </div>
+  </div>
 </section>
 
-<!-- ========== 現代の課題セクション ========== -->
-<section class="problem-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>座ることが、こんなに体に悪い？</h2>
-            <p>現代のタバコと呼ばれる「座る時間の長さ」</p>
-        </div>
-        <div class="problem-grid">
-            <div class="problem-card">
-                <h3>血流悪化</h3>
-                <p>長時間座ることで、下半身の血流が悪くなり、全身の健康に悪影響を及ぼします</p>
-            </div>
-            <div class="problem-card">
-                <h3>腰痛・坐骨神経痛</h3>
-                <p>不適切な座り姿勢は、腰や尾てい骨に圧迫を生じさせます</p>
-            </div>
-            <div class="problem-card">
-                <h3>寿命の短縮</h3>
-                <p>医学的に「座る時間が長いほど寿命が縮む」と言われています</p>
-            </div>
-        </div>
+<!-- ========== EDUCATION: 座りすぎリスクを数値ピルで ========== -->
+<section class="section">
+  <div class="container">
+    <h2>"座りすぎ"のリスクを、正しく知る</h2>
+    <div class="metric-pills" style="margin-top:10px">
+      <span class="pill">平均座位時間：◯h/日（仮）</span>
+      <span class="pill">推奨立ち上がり間隔：◯分（仮）</span>
+      <span class="pill">尾骨圧の目安：◯kPa（仮）</span>
     </div>
+    <p class="small" style="margin-top:8px">※数値は後で確定。図解・参考出典も後で挿入</p>
+    <div class="section-cta">
+      <a class="btn btn-ghost focus-ring" target="_blank"
+         href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994">Amazonで詳細を見る</a>
+    </div>
+  </div>
 </section>
 
-<!-- ========== ブランドストーリー ========== -->
-<section class="story-section" id="story">
-    <div class="container">
-        <div class="section-header">
-            <h2>relax healが生まれた想い</h2>
-        </div>
-        <div class="story-content">
-            <p>
-                現代社会では、デスクワークやドライビング、長時間座る生活が当たり前になっています。<br>
-                医学的には「座る時間が長いほど寿命が縮む」と言われ、まさに現代のタバコと呼ばれるほど。
-            </p>
-            <p>
-                腰痛、坐骨神経痛、尾てい骨痛...<br>
-                そうした苦しみの中で、人々は「もっと良いクッションがあれば」と願っていました。
-            </p>
-            <p>
-                <strong>私たちrelax healが目指すのは、単なるクッションの販売ではなく、<br>
-                「座ることで、その人の健康を守る」というパラダイムシフト。</strong>
-            </p>
-            <p>
-                中村接骨院の院長・中村先生との監修を通じて、<br>
-                人体工学に基づいた、真の意味でラグジュアリーな癒しを追求してきました。
-            </p>
-            <p>
-                生卵も割れないほどの完璧なサポート力。<br>
-                それは、品質へのこだわりと、お客様の健康を守る思いから生まれた。
-            </p>
-            <p class="story-emphasis">
-                relax healは、「何万種類もあるクッションの中で、正しい選択をしてほしい」<br>
-                そう願うブランドです。<br>
-                <br>
-                毎日座る時間を、苦しみから解放に。<br>
-                ラグジュアリーな座り心地で、健康を守る。<br>
-                それが、relax healの約束です。
-            </p>
-        </div>
+<!-- ========== FLAGSHIP: 最高級ゲルクッション（卵テスト動画）========== -->
+<section class="section">
+  <div class="container grid-2">
+    <div class="card">
+      <h2>旗艦：最高級ゲルクッション</h2>
+      <ul class="small">
+        <li>人体工学×圧分散設計</li>
+        <li>医療専門家監修</li>
+        <li>長時間座位の快適性</li>
+      </ul>
+      <div class="section-cta">
+        <a class="btn btn-primary focus-ring" target="_blank"
+           href="https://www.amazon.co.jp/dp/B09BFY2V8N" aria-label="Amazonでゲルクッション詳細を見る">Amazonで見る</a>
+      </div>
     </div>
+    <div class="card">
+      <!-- 卵テスト動画（後で実ファイル差し替え） -->
+      <video controls preload="none" playsinline poster="/assets/posters/egg-test.webp" width="100%" style="border-radius:var(--radius)">
+        <source src="/assets/videos/products/gel-cushion.mp4" type="video/mp4" />
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+      <p class="small" style="margin-top:8px"><em>※卵テスト動画。後で実ファイル差し替え</em></p>
+    </div>
+  </div>
 </section>
 
-<!-- ========== 中村先生の信頼性セクション ========== -->
-<section class="nakamura-section" id="nakamura">
-    <div class="container">
-        <div class="section-header">
-            <h2>監修者：中村先生の信頼性</h2>
-            <p>医療専門家による品質保証</p>
-        </div>
-        <div class="nakamura-content">
-            <div class="nakamura-image">
-                <img src="assets/images/nakamura/完成2.jpg" alt="中村先生">
-            </div>
-            <div class="nakamura-text">
-                <h3>中村接骨院 院長 中村先生</h3>
-                <p>
-                    城陽市で接骨院を運営する医療専門家。人体工学に基づいた施術・商品開発で多くの患者をサポート。
-                    relax healのゲルクッションをはじめとする製品の監修・推薦を行っています。
-                </p>
-                <a href="https://nekoze-kyoto.jp/" target="_blank" class="btn btn-secondary">中村接骨院について詳しく</a>
-            </div>
-        </div>
-        <div class="celebrities-section">
-            <h3>著名人からの信頼</h3>
-            <div class="celebrities-grid">
-                <div class="celebrity-card">
-                    <img src="assets/images/celebrities/13588450103841.jpg" alt="元世界ボクシング王者 畠山さん">
-                    <p>元世界ボクシング王者<br>畠山さん</p>
-                </div>
-                <div class="celebrity-card">
-                    <img src="assets/images/celebrities/82412.jpg" alt="伝説のプロレスラー 藤波さん">
-                    <p>伝説のプロレスラー<br>藤波さん</p>
-                </div>
-            </div>
-        </div>
+<!-- ========== 監修者詳細：中村先生（外部リンク付き）========== -->
+<section class="section">
+  <div class="container grid-2">
+    <div class="kv">
+      <img src="/assets/images/nakamura/placeholder.webp" alt="監修：中村先生（仮）" loading="lazy" decoding="async" />
     </div>
+    <div>
+      <h2>監修者：中村接骨院 院長 中村先生</h2>
+      <p class="small">人体工学に基づく施術・商品開発。relax heal製品の設計監修/推薦。</p>
+      <div style="margin-top:16px">
+        <a class="btn btn-ghost focus-ring" target="_blank" href="https://nekoze-kyoto.jp/">中村接骨院 公式サイトへ</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ========== メディア・トレンド訴求 ========== -->
-<section class="media-section" id="media">
-    <div class="container">
-        <div class="section-header">
-            <h2>メディア実績 - 注目を浴びるrelax heal</h2>
-            <p>多数のメディア・番組で特集されています</p>
-        </div>
-        <div class="media-grid">
-            <div class="media-card">
-                <h3>バズるの泉</h3>
-                <p>通販番組で特集</p>
-                <video width="100%" controls>
-                    <source src="assets/videos/buzz-no-izumi/価格オファー無.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="media-card">
-                <h3>ヒットの予感</h3>
-                <p>雑誌掲載</p>
-                <img src="assets/images/media/hit-no-yokan.jpg" alt="ヒットの予感">
-            </div>
-            <div class="media-card">
-                <h3>ばばし / YouTube</h3>
-                <p>人気トラックドライバーも愛用</p>
-                <video width="100%" controls>
-                    <source src="assets/videos/babashi/クッション動画修正５.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
+<!-- ========== メディア掲載（詳細）========== -->
+<section class="section">
+  <div class="container">
+    <h2>メディア掲載</h2>
+    <div class="logo-strip small" style="margin:12px 0 10px">
+      <span>バズるの泉（TV）</span>
+      <span>ヒットの予感（雑誌）</span>
+      <span>YouTube ばばし</span>
     </div>
+    <p class="small">※ロゴ・掲載年月・リンクは後で挿入</p>
+    <div class="section-cta">
+      <a class="btn btn-ghost focus-ring" target="_blank"
+         href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994">Amazonで詳細を見る</a>
+    </div>
+  </div>
 </section>
 
-<!-- ========== 主力商品：ゲルクッション ========== -->
-<section class="products-section" id="products">
-    <div class="container">
-        <div class="section-header">
-            <h2>主力商品：ゲルクッション</h2>
-            <p>生卵も割れない、究極のサポート力</p>
-        </div>
-        <div class="product-featured">
-            <div class="product-visual">
-                <video width="100%" controls>
-                    <source src="assets/videos/products/最高級ゲルクッション動画.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="product-text">
-                <h3>最高級ゲルクッション</h3>
-                <p class="product-highlight">生卵が割れないほどの完璧なサポート力</p>
-                <ul class="product-features">
-                    <li>人体工学に基づいた設計</li>
-                    <li>医療専門家による監修</li>
-                    <li>長時間座っても疲れない</li>
-                    <li>腰痛・坐骨神経痛・尾てい骨痛対策</li>
-                </ul>
-                <a href="https://www.amazon.co.jp/dp/B09BFY2V8N" target="_blank" class="btn btn-primary">Amazonで購入する</a>
-            </div>
-        </div>
-
-        <!-- その他の商品紹介 -->
-        <div class="products-grid">
-            <div class="product-card">
-                <img src="assets/images/products/product-1.jpg" alt="ゲルクッション">
-                <h4>ゲルクッション</h4>
-                <p>最高級ゲルクッション</p>
-                <a href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994" class="btn btn-secondary">詳しく見る</a>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/products/product-2.jpg" alt="低反発クッション">
-                <h4>低反発クッション</h4>
-                <p>上質な座り心地</p>
-                <a href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994" class="btn btn-secondary">詳しく見る</a>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/products/product-3.jpg" alt="首枕">
-                <h4>首枕</h4>
-                <p>上質な癒し</p>
-                <a href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994" class="btn btn-secondary">詳しく見る</a>
-            </div>
-        </div>
+<!-- ========== FAQ（構造化データ土台付き）========== -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2>よくあるご質問</h2>
+    <div class="card">
+      <details open>
+        <summary>ゲルクッションは本当に生卵が割れない？</summary>
+        <p class="small" style="margin-top:8px">特殊ゲルの圧分散で割れにくくします（個人差あり）。動画で実際の様子がご確認いただけます。</p>
+      </details>
+      <hr style="border:none; border-top:var(--border); margin:12px 0;">
+      <details>
+        <summary>いつ頃から快適性を感じる？</summary>
+        <p class="small" style="margin-top:8px">使用直後から体感される方が多いです（個人差あり）。</p>
+      </details>
+      <hr style="border:none; border-top:var(--border); margin:12px 0;">
+      <details>
+        <summary>医療専門家の監修とは何ですか？</summary>
+        <p class="small" style="margin-top:8px">接骨院院長による圧分散設計・ゲル硬度基準の監修です。詳しくは「監修者」セクションをご覧ください。</p>
+      </details>
     </div>
+    <div class="section-cta">
+      <a class="btn btn-primary focus-ring" target="_blank"
+         href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994">Amazon公式ストアで見る</a>
+    </div>
+  </div>
 </section>
 
-<!-- ========== 顧客の悩み＆解決 ========== -->
-<section class="solution-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>こんなお悩みをお持ちですか？</h2>
-        </div>
-        <div class="solution-grid">
-            <div class="solution-card">
-                <h3>腰痛</h3>
-                <p>長時間座ると腰が痛くなる...</p>
-                <p class="solution-answer">✓ ゲルクッションなら、人体工学に基づいた設計で腰をしっかりサポート</p>
-            </div>
-            <div class="solution-card">
-                <h3>坐骨神経痛</h3>
-                <p>座ると坐骨周辺に痛みを感じる...</p>
-                <p class="solution-answer">✓ 完璧なクッション性で、圧迫を軽減します</p>
-            </div>
-            <div class="solution-card">
-                <h3>尾てい骨痛</h3>
-                <p>尾てい骨が痛くて座っていられない...</p>
-                <p class="solution-answer">✓ 適切なサポートで、痛みを緩和</p>
-            </div>
-            <div class="solution-card">
-                <h3>疲労感</h3>
-                <p>長く座ると全身が疲れてしまう...</p>
-                <p class="solution-answer">✓ 正しい座り姿勢で、疲労感を軽減</p>
-            </div>
-        </div>
+<!-- ========== FINAL CTA ========== -->
+<section class="section">
+  <div class="container card" style="text-align:center">
+    <h2>座る時間を、上質に。</h2>
+    <p class="small">relax healのクッションで、毎日の姿勢と時間を美しく。</p>
+    <div style="margin-top:16px">
+      <a class="btn btn-primary focus-ring" target="_blank"
+         href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994">Amazon公式ストアで見る</a>
     </div>
+  </div>
 </section>
 
-<!-- ========== お客様のレビュー ========== -->
-<section class="reviews-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>お客様からのお声</h2>
-            <p>Amazonで高く評価されています</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"以前のクッションより全然良い！長時間座っても疲れません"</p>
-                <p class="review-author">- 30代 デスクワーカー</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"坐骨神経痛が改善されました。本当にありがとうございます"</p>
-                <p class="review-author">- 50代 シニア層</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"トラックドライバーとして1日中座っていますが、このクッションで快適です"</p>
-                <p class="review-author">- 40代 トラックドライバー</p>
-            </div>
-        </div>
-        <div class="reviews-cta">
-            <a href="https://www.amazon.co.jp/dp/B09BFY2V8N" target="_blank" class="btn btn-primary">Amazonのレビューを見る</a>
-        </div>
-    </div>
-</section>
-
-<!-- ========== 健康教育セクション ========== -->
-<section class="education-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>座る時間が長いことの危険性</h2>
-            <p>医学的根拠に基づいた情報</p>
-        </div>
-        <div class="education-content">
-            <div class="education-card">
-                <h3>血流悪化と寿命の短縮</h3>
-                <p>
-                    長時間座ることで下半身の血流が悪くなり、全身に悪影響を及ぼします。<br>
-                    研究によると、座っている時間が長いほど寿命が短くなるとも言われています。
-                </p>
-            </div>
-            <div class="education-card">
-                <h3>現代のタバコ</h3>
-                <p>
-                    医学界では「座る時間の長さ」を「現代のタバコ」と表現するほど、<br>
-                    健康に与える悪影響が大きいと認識されています。
-                </p>
-            </div>
-            <div class="education-card">
-                <h3>正しい座り姿勢の重要性</h3>
-                <p>
-                    ただ座るのではなく、「正しい座り姿勢」で座ることが、<br>
-                    健康を守るために非常に重要です。
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========== 差別化メッセージ ========== -->
-<section class="difference-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>他のクッションとの違い</h2>
-        </div>
-        <div class="difference-table">
-            <table>
-                <tr>
-                    <th>項目</th>
-                    <th>relax heal</th>
-                    <th>一般的なクッション</th>
-                </tr>
-                <tr>
-                    <td>医療専門家監修</td>
-                    <td class="yes">✓ 中村先生監修</td>
-                    <td class="no">✗</td>
-                </tr>
-                <tr>
-                    <td>人体工学設計</td>
-                    <td class="yes">✓ 科学的根拠に基づく</td>
-                    <td class="no">✗ 一般的設計</td>
-                </tr>
-                <tr>
-                    <td>メディア実績</td>
-                    <td class="yes">✓ 多数の番組・雑誌掲載</td>
-                    <td class="no">✗</td>
-                </tr>
-                <tr>
-                    <td>品質へのこだわり</td>
-                    <td class="yes">✓ プレミアム品質</td>
-                    <td class="no">✗ 低価格重視</td>
-                </tr>
-                <tr>
-                    <td>健康サポート</td>
-                    <td class="yes">✓ 腰痛・坐骨神経痛対策</td>
-                    <td class="no">✗ 基本的な機能のみ</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- ========== よくあるご質問 ========== -->
-<section class="faq-section" id="faq">
-    <div class="container">
-        <div class="section-header">
-            <h2>よくあるご質問</h2>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <h4>Q. ゲルクッションは本当に生卵が割れないのですか？</h4>
-                <p>A. はい。特殊なゲル素材の完璧なクッション性により、生卵が割れないほどの衝撃吸収性能を持っています。動画でもその様子をご確認いただけます。</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q. どのくらいの期間で効果を感じることができますか？</h4>
-                <p>A. 個人差がありますが、多くのお客様が使用開始直後から座り心地の改善を実感いただいています。</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q. 腰痛が改善されますか？</h4>
-                <p>A. relax healのクッションは人体工学に基づいて設計されており、多くのお客様が腰痛の軽減を報告されています。ただし、症状が強い場合は医師にご相談ください。</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q. どのくらいの耐久性がありますか？</h4>
-                <p>A. 高品質な素材を使用しており、適切なご使用で長期間ご使用いただけます。詳細はAmazonの商品ページをご参照ください。</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q. Amazonで購入する際の注意点はありますか？</h4>
-                <p>A. relax heal公式ストアからのご購入をお勧めいたします。品質や保証の面でご安心いただけます。</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========== 最終CTA ========== -->
-<section class="final-cta">
-    <div class="container">
-        <h2>座る時間を、健康に変える</h2>
-        <p>relax healのクッションで、あなたの毎日を変えてください</p>
-        <a href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994" target="_blank" class="btn btn-primary btn-large">Amazonストアを見る</a>
-    </div>
-</section>
-
-<!-- ========== フッター ========== -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>relax heal</h4>
-                <p>座る時間を、健康に変える</p>
-            </div>
-            <div class="footer-section">
-                <h4>リンク</h4>
-                <ul>
-                    <li><a href="https://nekoze-kyoto.jp/" target="_blank">中村接骨院</a></li>
-                    <li><a href="https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994" target="_blank">Amazonストア</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>お問い合わせ</h4>
-                <p>ご質問・ご不明な点はAmazonストアのお問い合わせからお願いいたします</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 relax heal. All rights reserved.</p>
-        </div>
-    </div>
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container small">
+    <div>© 2024 relax heal</div>
+  </div>
 </footer>
 
-<script src="js/script.js"></script>
+<!-- ========== 構造化データ ========== -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ "name":"relax heal",
+ "url":"https://example.com",
+ "logo":"https://example.com/assets/og/og.jpg",
+ "sameAs":["https://www.amazon.co.jp/stores/page/BBF3D31D-152B-4EBE-B645-76120FC53994"]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"relax heal",
+ "url":"https://example.com",
+ "potentialAction":{
+  "@type":"SearchAction",
+  "target":"https://example.com/?q={search_term_string}",
+  "query-input":"required name=search_term_string"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"ゲルクッションは本当に生卵が割れない？",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"特殊ゲルの圧分散で割れにくくします（個人差あり）。動画で実際の様子がご確認いただけます。"
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"いつ頃から快適性を感じる？",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"使用直後から体感される方が多いです（個人差あり）。"
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"医療専門家の監修とは何ですか？",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"接骨院院長による圧分散設計・ゲル硬度基準の監修です。詳しくは「監修者」セクションをご覧ください。"
+   }
+  }
+ ]
+}
+</script>
+
+<script src="js/script.js" defer></script>
 </body>
 </html>

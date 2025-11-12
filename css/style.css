@@ -1,897 +1,486 @@
-/* ========== リセット・基本設定 ========== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ========== DESIGN SYSTEM: Color Tokens & Base ========== */
+:root {
+  /* Color Palette */
+  --color-base: #111111;
+  --color-surface: #1D1D1D;
+  --color-paper: #F5F3EF;
+  --color-accent: #C9BA9B; /* 金属感ベージュ */
+  --color-muted: #6B6B6B;
+  --color-cta-text: #F5F3EF;
+
+  /* Radius & Shadow & Border */
+  --radius: 6px;
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --border: 1px solid rgba(255, 255, 255, 0.06);
+
+  /* Typography */
+  --font-serif: "Noto Serif JP", "EB Garamond", serif;
+  --font-sans: "Inter", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section: min(12vw, 128px);
+  --gap-lg: 32px;
+  --gap: 24px;
+  --gap-sm: 12px;
+
+  /* Z-index */
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-modal: 100;
 }
 
-:root {
-    --primary-dark: #1a3a3a;
-    --secondary-dark: #2c3e50;
-    --accent-gold: #d4af37;
-    --accent-light-gold: #e6c78a;
-    --background-light: #f8f7f4;
-    --text-dark: #2c2c2c;
-    --text-light: #666666;
-    --white: #ffffff;
-    --border-light: #e0ddd8;
+/* ========== Base Typography & Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--white);
+  color: var(--color-paper);
+  background: #0E0E0E;
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ========== コンテナ ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+hr {
+  border: none;
+  border-top: var(--border);
+}
+
+/* ========== Layout Components ========== */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: min(1080px, 92vw);
+  margin: auto;
 }
 
-/* ========== セクション共通スタイル ========== */
-section {
-    padding: 80px 0;
+.section {
+  padding: var(--section) 0;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
+/* ========== Grid System ========== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-lg);
 }
 
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    letter-spacing: -0.5px;
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--gap-lg);
 }
 
-.section-header p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    font-weight: 300;
+@media (max-width: 900px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* ========== ボタン ========== */
+/* ========== Card Component ========== */
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== Button Component ========== */
 .btn {
-    display: inline-block;
-    padding: 14px 40px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-primary {
-    background-color: var(--accent-gold);
-    color: var(--primary-dark);
+  background: var(--color-base);
+  color: var(--color-cta-text);
+  border: 2px solid var(--color-base);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-light-gold);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-base);
+  transform: translateY(-1px);
 }
 
-.btn-secondary {
-    background-color: var(--primary-dark);
-    color: var(--white);
+.btn-ghost {
+  background: transparent;
+  color: var(--color-cta-text);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.btn-secondary:hover {
-    background-color: var(--secondary-dark);
-    transform: translateY(-2px);
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
-.btn-large {
-    padding: 18px 50px;
-    font-size: 1.1rem;
+.btn:active {
+  transform: translateY(0);
 }
 
-/* ========== ナビゲーションバー ========== */
-.header {
-    background-color: var(--white);
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* ========== Accessibility: Focus Ring ========== */
+.focus-ring:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ========== Typography Utilities ========== */
+.small {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    letter-spacing: 1px;
+.section-head {
+  margin-bottom: 18px;
+  font-weight: 600;
 }
 
-.nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
+.section-cta {
+  margin-top: 18px;
 }
 
-.nav a {
-    color: var(--text-dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
+/* ========== Image / KV Component ========== */
+.kv img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
 }
 
-.nav a:hover {
-    color: var(--accent-gold);
+img[loading="lazy"],
+img[decoding="async"] {
+  scroll-behavior: smooth;
 }
 
-.nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-gold);
-    transition: width 0.3s ease;
+/* ========== Metric Pills ========== */
+.metric-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: var(--gap);
 }
 
-.nav a:hover::after {
-    width: 100%;
+.pill {
+  border: var(--border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
-/* ========== ファーストビュー ========== */
+.pill:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ========== Logo Strip ========== */
+.logo-strip {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0.9;
+}
+
+.logo-strip span {
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+  border: var(--border);
+}
+
+/* ========== Review Metrics ========== */
+.review-metrics {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.review-metrics div {
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ========== HERO Section ========== */
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px 0;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-    color: var(--white);
-    gap: 60px;
+  padding: min(10vw, 120px) 0;
+  background: linear-gradient(135deg, rgba(25, 25, 25, 0.5) 0%, rgba(15, 15, 15, 0.8) 100%);
+  border-bottom: var(--border);
 }
 
-.hero .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+.hero h1 {
+  margin-bottom: 12px;
 }
 
-.hero-content {
-    flex: 1;
+.hero > .container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    letter-spacing: -1px;
+/* ========== Video Element ========== */
+video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  background: #000;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    font-weight: 300;
-    opacity: 0.9;
+/* ========== Details / FAQ ========== */
+details {
+  border-bottom: var(--border);
+  padding: 16px 0;
 }
 
-.hero-subtitle {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    margin-top: 20px;
-    margin-bottom: 40px;
+details:last-of-type {
+  border-bottom: none;
 }
 
-.hero-visual {
-    flex: 1;
-    position: relative;
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px;
+  transition: all 0.2s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.video-placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+summary:hover {
+  color: var(--color-accent);
 }
 
-.video-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+summary::marker {
+  color: var(--color-accent);
 }
 
-.hero-cta {
-    margin-top: 40px;
+details[open] > summary {
+  color: var(--color-accent);
+  margin-bottom: 8px;
 }
 
-.hero-cta .btn {
-    background-color: var(--accent-gold);
-    color: var(--primary-dark);
-    padding: 16px 45px;
-    font-size: 1.05rem;
+/* ========== FOOTER ========== */
+footer {
+  border-top: var(--border);
+  padding: 40px 0;
+  margin-top: var(--section);
+  font-size: 13px;
 }
 
-/* ========== 問題セクション ========== */
-.problem-section {
-    background-color: var(--background-light);
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap);
 }
 
-.problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-}
-
-.problem-card {
-    background-color: var(--white);
-    padding: 40px;
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-gold);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.problem-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.problem-card h3 {
-    font-size: 1.3rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-}
-
-.problem-card p {
-    color: var(--text-light);
-    line-height: 1.7;
-}
-
-/* ========== ブランドストーリー ========== */
-.story-section {
-    background-color: var(--white);
-}
-
-.story-content {
-    background-color: var(--background-light);
-    padding: 60px;
-    border-radius: 8px;
-    line-height: 1.9;
-}
-
-.story-content p {
-    font-size: 1.05rem;
-    color: var(--text-dark);
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.story-content strong {
-    color: var(--primary-dark);
-    font-weight: 600;
-}
-
-.story-emphasis {
-    font-size: 1.15rem;
-    color: var(--primary-dark);
-    background-color: rgba(212, 175, 55, 0.1);
-    padding: 30px;
-    border-radius: 4px;
-    margin-top: 40px;
-    font-weight: 500;
-}
-
-/* ========== 中村先生セクション ========== */
-.nakamura-section {
-    background-color: var(--background-light);
-}
-
-.nakamura-content {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 80px;
-    align-items: center;
-}
-
-.nakamura-image {
-    flex: 0 0 40%;
-}
-
-.nakamura-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.nakamura-text {
-    flex: 1;
-}
-
-.nakamura-text h3 {
-    font-size: 1.8rem;
-    color: var(--primary-dark);
-    margin-bottom: 20px;
-}
-
-.nakamura-text p {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.celebrities-section {
-    margin-top: 60px;
-    border-top: 1px solid var(--border-light);
-    padding-top: 60px;
-}
-
-.celebrities-section h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--primary-dark);
-    margin-bottom: 40px;
-}
-
-.celebrities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.celebrity-card {
-    text-align: center;
-}
-
-.celebrity-card img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.celebrity-card p {
-    font-size: 1rem;
-    color: var(--text-dark);
-    font-weight: 500;
-}
-
-/* ========== メディアセクション ========== */
-.media-section {
-    background-color: var(--white);
-}
-
-.media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.media-card {
-    background-color: var(--background-light);
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-}
-
-.media-card h3 {
-    font-size: 1.3rem;
-    color: var(--primary-dark);
-    margin-bottom: 10px;
-}
-
-.media-card p {
-    color: var(--text-light);
-    margin-bottom: 20px;
-}
-
-.media-card video,
-.media-card img {
-    width: 100%;
-    border-radius: 4px;
-    max-height: 400px;
-    object-fit: cover;
-}
-
-/* ========== 商品セクション ========== */
-.products-section {
-    background-color: var(--background-light);
-}
-
-.product-featured {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 80px;
-    align-items: center;
-}
-
-.product-visual {
-    flex: 1;
-}
-
-.product-visual video {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.product-text {
-    flex: 1;
-}
-
-.product-text h3 {
-    font-size: 2rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-}
-
-.product-highlight {
-    font-size: 1.2rem;
-    color: var(--accent-gold);
-    font-weight: 600;
-    margin-bottom: 30px;
-}
-
-.product-features {
-    list-style: none;
-    margin-bottom: 40px;
-}
-
-.product-features li {
-    font-size: 1.05rem;
-    color: var(--text-dark);
-    padding: 12px 0;
-    padding-left: 30px;
-    position: relative;
-}
-
-.product-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-gold);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 60px;
-}
-
-.product-card {
-    background-color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.product-card img {
-    width: 100%;
-    aspect-ratio: 3 / 3;
-    object-fit: cover;
-}
-
-.product-card h4 {
-    font-size: 1.1rem;
-    color: var(--primary-dark);
-    padding: 20px 20px 10px;
-}
-
-.product-card p {
-    color: var(--text-light);
-    padding: 0 20px;
-    margin-bottom: 20px;
-}
-
-.product-card .btn {
-    display: block;
-    margin: 20px;
-    text-align: center;
-}
-
-/* ========== ソリューションセクション ========== */
-.solution-section {
-    background-color: var(--white);
-}
-
-.solution-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.solution-card {
-    background-color: var(--background-light);
-    padding: 30px;
-    border-radius: 8px;
-    border-top: 4px solid var(--accent-gold);
-}
-
-.solution-card h3 {
-    font-size: 1.2rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-}
-
-.solution-card p:first-of-type {
-    color: var(--text-light);
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.solution-answer {
-    color: var(--primary-dark);
-    font-weight: 500;
-    background-color: rgba(212, 175, 55, 0.1);
-    padding: 15px;
-    border-radius: 4px;
-}
-
-/* ========== レビューセクション ========== */
-.reviews-section {
-    background-color: var(--background-light);
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.review-card {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.review-stars {
-    color: var(--accent-gold);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
-.review-card p {
-    color: var(--text-dark);
-    margin-bottom: 15px;
-    line-height: 1.7;
-}
-
-.review-author {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    font-style: italic;
-}
-
-.reviews-cta {
-    text-align: center;
-}
-
-/* ========== 教育セクション ========== */
-.education-section {
-    background-color: var(--white);
-}
-
-.education-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.education-card {
-    padding: 40px;
-    background-color: var(--background-light);
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-gold);
-}
-
-.education-card h3 {
-    font-size: 1.2rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-}
-
-.education-card p {
-    color: var(--text-light);
-    line-height: 1.8;
-}
-
-/* ========== 差別化セクション ========== */
-.difference-section {
-    background-color: var(--background-light);
-}
-
-.difference-table {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-table th {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: 20px;
-    text-align: left;
-    font-weight: 600;
-}
-
-table td {
-    padding: 20px;
-    border-bottom: 1px solid var(--border-light);
-    color: var(--text-dark);
-}
-
-table tr:last-child td {
-    border-bottom: none;
-}
-
-table tr:hover {
-    background-color: var(--background-light);
-}
-
-.yes {
-    color: var(--accent-gold);
-    font-weight: 600;
-}
-
-.no {
-    color: var(--text-light);
-}
-
-/* ========== FAQセクション ========== */
-.faq-section {
-    background-color: var(--white);
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.faq-item:last-child {
-    border-bottom: none;
-}
-
-.faq-item h4 {
-    font-size: 1.1rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.faq-item h4::before {
-    content: 'Q';
-    position: absolute;
-    left: 0;
-    color: var(--accent-gold);
-    font-weight: 700;
-}
-
-.faq-item p {
-    color: var(--text-light);
-    padding-left: 25px;
-    position: relative;
-    line-height: 1.8;
-}
-
-.faq-item p::before {
-    content: 'A';
-    position: absolute;
-    left: 0;
-    color: var(--primary-dark);
-    font-weight: 600;
-}
-
-/* ========== 最終CTA ========== */
-.final-cta {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-    color: var(--white);
-    padding: 100px 0;
-    text-align: center;
-}
-
-.final-cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.final-cta p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-/* ========== フッター ========== */
-.footer {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: 60px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-section h4 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.footer-section p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: var(--accent-gold);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* ========== レスポンシブ対応 ========== */
+/* ========== Responsive Design ========== */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        padding: 50px 0;
-    }
+  :root {
+    --section: min(8vw, 80px);
+    --gap-lg: 24px;
+  }
 
-    .hero .container {
-        flex-direction: column;
-    }
+  h1 {
+    font-size: clamp(24px, 2.8vw, 32px);
+  }
 
-    .hero h2 {
-        font-size: 2rem;
-    }
+  h2 {
+    font-size: clamp(18px, 2vw, 26px);
+  }
 
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
 
-    .nakamura-content,
-    .product-featured {
-        flex-direction: column;
-    }
+  .metric-pills,
+  .logo-strip {
+    gap: 8px;
+  }
 
-    .nakamura-image {
-        flex: 1;
-        width: 100%;
-    }
+  .btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
 
-    .nav ul {
-        gap: 20px;
-        font-size: 0.9rem;
-    }
-
-    section {
-        padding: 50px 0;
-    }
-
-    .story-content {
-        padding: 30px;
-    }
-
-    .celebrities-grid {
-        grid-template-columns: 1fr;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
-    table th,
-    table td {
-        padding: 12px;
-    }
-
-    .final-cta h2 {
-        font-size: 1.8rem;
-    }
+  .hero {
+    padding: 60px 0;
+  }
 }
 
 @media (max-width: 480px) {
-    .nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
+  :root {
+    --section: 60px;
+    --gap-lg: 16px;
+    --gap: 12px;
+  }
 
-    .hero h2 {
-        font-size: 1.5rem;
-    }
+  h1 {
+    font-size: clamp(20px, 2.5vw, 26px);
+  }
 
-    .section-header h2 {
-        font-size: 1.4rem;
-    }
+  h2 {
+    font-size: clamp(16px, 1.8vw, 22px);
+  }
 
-    .btn {
-        padding: 12px 30px;
-        font-size: 0.95rem;
-    }
+  .container {
+    width: 95vw;
+  }
 
-    .problem-grid,
-    .media-grid,
-    .products-grid,
-    .solution-grid,
-    .reviews-grid,
-    .education-content {
-        grid-template-columns: 1fr;
-    }
+  .card {
+    padding: var(--gap-lg);
+  }
 
-    .story-content {
-        padding: 20px;
-    }
+  .btn {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .small {
+    font-size: 13px;
+  }
+
+  .review-metrics {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .metric-pills {
+    gap: 6px;
+  }
+
+  .pill {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+/* ========== Performance & Rendering ========== */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lazy loading placeholder */
+img[loading="lazy"] {
+  background: #0E0E0E;
+}
+
+/* ========== Utility Classes ========== */
+.text-center {
+  text-align: center;
+}
+
+.mt-sm {
+  margin-top: var(--gap-sm);
+}
+
+.mt-md {
+  margin-top: var(--gap);
+}
+
+.mt-lg {
+  margin-top: var(--gap-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--gap-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--gap);
+}
+
+.mb-lg {
+  margin-bottom: var(--gap-lg);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
 }

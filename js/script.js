@@ -1,107 +1,119 @@
-// ========== FAQ アコーディオン機能 ==========
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
+/* ========== Lazy Video Loading ========== */
+document.querySelectorAll('video[preload="none"]').forEach(video => {
+  video.addEventListener('pointerenter', () => {
+    if (video.getAttribute('data-loaded')) return;
+    video.load();
+    video.setAttribute('data-loaded', '1');
+  });
 
-    faqItems.forEach(item => {
-        const h4 = item.querySelector('h4');
-        const p = item.querySelector('p');
-
-        // 初期状態では回答を非表示にしない（常に表示）
-        // クリック時のアコーディオン機能は以下で実装
-
-        h4.addEventListener('click', function() {
-            p.style.display = p.style.display === 'none' ? 'block' : 'none';
-            h4.style.cursor = 'pointer';
-            h4.style.userSelect = 'none';
-            h4.classList.toggle('active');
-        });
-    });
-
-    // ========== スムーズスクロール対応 ==========
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#' && document.querySelector(href)) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // ========== ナビゲーション ハイライト機能 ==========
-    const navLinks = document.querySelectorAll('.nav a');
-    const sections = document.querySelectorAll('section[id]');
-
-    window.addEventListener('scroll', function() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // ========== スクロール時のアニメーション ==========
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // カード要素をアニメーション対象にする
-    const cards = document.querySelectorAll('.problem-card, .product-card, .review-card, .solution-card');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-
-    // ========== モバイルメニュー（オプション） ==========
-    // 必要に応じてハンバーガーメニューを実装
-
-    // ========== 動画の遅延読み込み ==========
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-        video.setAttribute('preload', 'none');
-        video.addEventListener('play', function() {
-            // 動画が再生されるまで読み込みを遅延
-        });
-    });
-
-    console.log('relax heal website initialized');
-});
-
-// ========== スクロール位置を保存 ==========
-window.addEventListener('beforeunload', function() {
-    sessionStorage.setItem('scrollPosition', window.scrollY);
-});
-
-window.addEventListener('load', function() {
-    const scrollPosition = sessionStorage.getItem('scrollPosition');
-    if (scrollPosition) {
-        window.scrollTo(0, parseInt(scrollPosition));
+  video.addEventListener('play', () => {
+    if (!video.getAttribute('data-loaded')) {
+      video.load();
+      video.setAttribute('data-loaded', '1');
     }
+  });
 });
+
+/* ========== Intersection Observer for Lazy Images ========== */
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.src || img.getAttribute('data-src');
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    rootMargin: '50px'
+  });
+
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    imageObserver.observe(img);
+  });
+}
+
+/* ========== Smooth Scroll for Internal Links ========== */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ========== Details / Accordion Enhancement ========== */
+document.querySelectorAll('details').forEach(detail => {
+  const summary = detail.querySelector('summary');
+  if (summary) {
+    summary.addEventListener('click', () => {
+      // Close other open details in the same container
+      const container = detail.parentElement;
+      if (container && detail.open === false) {
+        container.querySelectorAll('details[open]').forEach(otherDetail => {
+          if (otherDetail !== detail && otherDetail.parentElement === container) {
+            otherDetail.open = false;
+          }
+        });
+      }
+    });
+  }
+});
+
+/* ========== Page Load Analytics Hook ========== */
+document.addEventListener('DOMContentLoaded', () => {
+  // Trigger pageview or analytics event here if needed
+  // Example: trackPageView('relax-heal-homepage');
+  console.log('[relax heal] Page loaded and initialized');
+});
+
+/* ========== Performance: LCP / CLS Monitoring ========== */
+if ('PerformanceObserver' in window) {
+  // Monitor Largest Contentful Paint
+  const lcpObserver = new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    const lastEntry = entries[entries.length - 1];
+    console.log('[LCP]', lastEntry.renderTime || lastEntry.loadTime);
+  });
+
+  try {
+    lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+  } catch (e) {
+    // LCP API not fully supported
+  }
+
+  // Monitor Cumulative Layout Shift
+  let clsScore = 0;
+  const clsObserver = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      if (!entry.hadRecentInput) {
+        clsScore += entry.value;
+      }
+    });
+    console.log('[CLS]', clsScore);
+  });
+
+  try {
+    clsObserver.observe({ type: 'layout-shift', buffered: true });
+  } catch (e) {
+    // CLS API not fully supported
+  }
+}
+
+/* ========== Scroll Position Restoration ========== */
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('scrollPosition', window.scrollY);
+});
+
+window.addEventListener('load', () => {
+  const scrollPosition = sessionStorage.getItem('scrollPosition');
+  if (scrollPosition !== null) {
+    window.scrollTo(0, parseInt(scrollPosition, 10));
+  }
+});
+
+/* ========== Initialization Complete ========== */
+console.log('[relax heal] JavaScript initialization complete');
