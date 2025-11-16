@@ -49,40 +49,22 @@
       <button class="carousel-btn prev" aria-label="前のスライド">‹</button>
       <div class="carousel-track">
         <article class="carousel-slide active">
-          <div class="slide-label">スペシャル対談</div>
           <img src="画像/カルーセル/カルーセル1.jpg" alt="元世界王者畑山さんとの対談" />
           <div class="slide-body">
             <h2>畑山さんと語る"正しい心地"</h2>
-            <p>元世界ボクシング王者 畑山さんと、長時間座りの課題とゲルクッションの可能性を徹底トーク。</p>
-            <a href="#" class="slide-btn">対談の様子を見る</a>
           </div>
         </article>
         <article class="carousel-slide">
-          <div class="slide-label">伝説のアスリート体感</div>
-          <img src="画像/カルーセル/カルーセル2.jpg" alt="プロレスラー藤波さんへの施術" />
+          <img src="画像/カルーセル/カルーセル2.jpg" alt="接骨院院長による監修風景" />
           <div class="slide-body">
-            <h2>ドラゴン藤波さんへのケア</h2>
-            <p>藤波辰爾さんのコンディショニングを支える施術と、relax heal の姿勢サポートの裏側。</p>
-            <a href="#" class="slide-btn">施術レポート</a>
+            <h2>接骨院院長が監修した、人の骨格に沿う設計。</h2>
           </div>
         </article>
-        <article class="carousel-slide">
-          <div class="slide-label">低反発 × ゲル</div>
+        <article class="carousel-slide no-text">
           <img src="画像/カルーセル/カルーセル3.jpg" alt="低反発クッション" />
-          <div class="slide-body">
-            <h2>しっとり沈む上質ゲル</h2>
-            <p>ふんわり沈んで支えるゲル層に、肌ざわりの良いベルベットカバーを重ねた新しい旗艦ライン。</p>
-            <a href="#" class="slide-btn">詳しく見る</a>
-          </div>
         </article>
-        <article class="carousel-slide">
-          <div class="slide-label">ドライバー支持</div>
-          <img src="画像/カルーセル/カルーセル4.jpg" alt="女性トラックドライバーばばしさんレビュー" />
-          <div class="slide-body">
-            <h2>YouTuberばばしさん絶賛</h2>
-            <p>人気女性トラックドライバーも驚いた"卵が割れない"座り心地。長距離でも姿勢が整う理由を公開。</p>
-            <a href="#" class="slide-btn">レビューを見る</a>
-          </div>
+        <article class="carousel-slide no-text">
+          <img src="画像/カルーセル/カルーセル4.jpg" alt="楽天ランキング1位獲得" />
         </article>
       </div>
       <button class="carousel-btn next" aria-label="次のスライド">›</button>
@@ -96,45 +78,22 @@
         <p class="eyebrow">CATEGORY</p>
         <h3>商品カテゴリー</h3>
       </div>
-      <div class="category-item">
-        <button aria-expanded="false">すべての商品</button>
-      </div>
-      <div class="category-item">
-        <button aria-expanded="false">まくら・抱きまくら</button>
+      <a class="category-all-btn" href="#">すべての商品を見る</a>
+      <div class="category-item is-open">
+        <button aria-expanded="true">ゲルクッション</button>
         <ul class="category-children">
-          <li><a href="#">首まくら</a></li>
-          <li><a href="#">ボディピロー</a></li>
+          <li><a href="#">通常サイズ</a></li>
+          <li><a href="#">大判サイズ</a></li>
+          <li><a href="#">カラーカバー</a></li>
+          <li><a href="#">極厚タイプ</a></li>
+          <li><a href="#">ドーナツ型</a></li>
         </ul>
       </div>
       <div class="category-item">
-        <button aria-expanded="false">クッション</button>
-        <ul class="category-children">
-          <li><a href="#">円形クッション</a></li>
-          <li><a href="#">スクエアクッション</a></li>
-        </ul>
+        <button aria-expanded="false">低反発</button>
       </div>
       <div class="category-item">
-        <button aria-expanded="false">ソファ・チェア</button>
-        <ul class="category-children">
-          <li><a href="#">フロアソファ</a></li>
-          <li><a href="#">ビーズクッション</a></li>
-        </ul>
-      </div>
-      <div class="category-item">
-        <button aria-expanded="false">雑貨</button>
-        <ul class="category-children">
-          <li><a href="#">ブランケット</a></li>
-          <li><a href="#">ルームシューズ</a></li>
-        </ul>
-      </div>
-      <div class="category-item">
-        <button aria-expanded="false">マタニティ・ベビー</button>
-      </div>
-      <div class="category-item">
-        <button aria-expanded="false">トラベル・アウトドア</button>
-      </div>
-      <div class="category-item">
-        <button aria-expanded="false">介護ケア</button>
+        <button aria-expanded="false">首枕</button>
       </div>
     </aside>
 
@@ -152,31 +111,36 @@
               <p class="small">テレビ番組</p>
               <h3>バズるの泉（読売テレビ）</h3>
             </div>
-            <video controls preload="none" playsinline poster="画像/メディア一覧/動画にはるサムネ.png">
+            <video class="media-video" controls muted preload="none" playsinline poster="画像/メディア一覧/動画にはるサムネ.png">
               <source src="画像/メディア一覧/バズるの泉.mov" type="video/quicktime" />
               お使いの環境では動画を再生できません。
             </video>
-            <p class="small">卵が割れない検証をスタジオで実演。音声は再生ボタンでオンにできます。</p>
+            <p class="small">卵が割れない検証をスタジオで実演。動画はミュート再生で雰囲気だけお楽しみいただけます。</p>
           </article>
           <article class="media-card">
             <div class="media-meta">
               <p class="small">YouTube</p>
               <h3>女性トラックドライバー ばばしさん</h3>
             </div>
-            <video controls preload="none" playsinline poster="画像/メディア一覧/ばばしサムネ.png">
+            <video class="media-video" controls muted preload="none" playsinline poster="画像/メディア一覧/ばばしサムネ.png">
               <source src="画像/メディア一覧/ばばし動画.mp4" type="video/mp4" />
               お使いの環境では動画を再生できません。
             </video>
-            <p class="small">長距離移動でも姿勢が崩れにくいポイントをレビューで紹介。</p>
+            <p class="small">長距離移動でも姿勢が崩れにくいポイントをレビューで紹介。こちらの動画も常時ミュートで再生されます。</p>
           </article>
         </div>
         <div class="media-magazine">
-          <figure>
-            <img src="画像/メディア一覧/ヒットの予感表紙.jpg" alt="ヒットの予感 表紙" loading="lazy" />
-          </figure>
-          <figure>
-            <img src="画像/メディア一覧/ヒットの予感掲載ページ.jpg" alt="ヒットの予感 掲載ページ" loading="lazy" />
-          </figure>
+          <article class="media-magazine-card">
+            <div class="magazine-images">
+              <img src="画像/メディア一覧/ヒットの予感表紙.png" alt="ヒットの予感 表紙" loading="lazy" />
+              <img src="画像/メディア一覧/ヒットの予感掲載ページ.png" alt="ヒットの予感 掲載ページ" loading="lazy" />
+            </div>
+            <div class="magazine-copy">
+              <p class="small eyebrow">HIT PREDICTIONS 2025</p>
+              <h3>暮らしを変えるプロダクトとして掲載</h3>
+              <p>「座り方そのものをデザインする」ブランドとして、ヒットの予感特集にて2ページにわたり紹介。紙面ではゲルレイヤーの断面や使い方のポイントも丁寧に解説されています。</p>
+            </div>
+          </article>
         </div>
       </section>
       <section class="supervision-section" id="supervision">
@@ -193,13 +157,7 @@
           </div>
           <div>
             <h3>姿勢ケアと睡眠の専門院が立ち上げから伴走。</h3>
-            <p>京都の姿勢ケア接骨院「ねこぜ京都」院長 中村先生が、骨盤ラインと尾骨の圧を逃がす構造を監修。アスリートやドライバーの声を取り入れ、Amazon公式ライブでも正しい使い方を発信しています。</p>
-            <ul>
-              <li>アスリート・プロドライバーの体感データを分析</li>
-              <li>Amazon公式ストアでの定期ライブ監修</li>
-              <li>尾骨を包む三層グリッドの共同開発</li>
-            </ul>
-            <p>医療の現場で得た気づきをプロダクトに橋渡しすることで、「座る時間」そのものを心と体の休息に変えることを目指しています。</p>
+            <p>京都の姿勢ケア接骨院「ねこぜ京都」院長 中村先生が、骨盤ラインと尾骨の圧を逃がす構造を監修。</p>
           </div>
         </div>
       </section>
@@ -214,21 +172,27 @@
         <div class="product-grid three-up">
           <article class="product-card">
             <span class="product-badge">新商品</span>
-            <img src="画像/新着商品/新着１.png" alt="新着ゲルクッション 1" />
+            <img src="画像/新着商品/新着1NEW.jpg" alt="新着ゲルクッション 1" />
             <h3>プレミアムゲル TWIN</h3>
             <p class="price">¥4,980</p>
           </article>
           <article class="product-card">
             <span class="product-badge limited">数量限定</span>
-            <img src="画像/新着商品/新着２.png" alt="新着ゲルクッション 2" />
+            <img src="画像/新着商品/新着2NEW.jpg" alt="新着ゲルクッション 2" />
             <h3>ハニカムビッグタイプ</h3>
             <p class="price">¥5,280</p>
           </article>
           <article class="product-card">
             <span class="product-badge">新商品</span>
-            <img src="画像/新着商品/新着３.jpg" alt="新着ゲルクッション 3" />
+            <img src="画像/新着商品/新着3NEW.png" alt="新着ゲルクッション 3" />
             <h3>ドライバーズサポート</h3>
             <p class="price">¥3,960</p>
+          </article>
+          <article class="product-card mobile-only">
+            <span class="product-badge">新商品</span>
+            <img src="画像/新着商品/新着商品4.jpg" alt="新着ゲルクッション 4" />
+            <h3>コンフォートプラス</h3>
+            <p class="price">¥4,580</p>
           </article>
         </div>
       </section>
@@ -242,64 +206,69 @@
         </div>
         <div class="series-collage">
           <figure class="series-main">
-            <img src="画像/定番シリーズ/商品へ５.jpg" alt="極厚6cmタイプ" loading="lazy" />
-            <figcaption>
-              <span class="series-label">CLOUD</span>
-              <h3>極厚6cmタイプ</h3>
-              <p>5×6cmゲル層でしっとり沈む旗艦モデル。差し色カバーで空間も上質に。</p>
-            </figcaption>
+            <img src="画像/定番シリーズ/商品1.jpg" alt="商品1 極厚ゲルクッション" loading="lazy" />
           </figure>
           <div class="series-side">
             <figure class="series-rect">
-              <img src="画像/定番シリーズ/商品へ６.jpg" alt="カラーカバータイプ" loading="lazy" />
-              <figcaption>
-                <span class="series-label">JOY</span>
-                <p>カラーカバータイプ</p>
-              </figcaption>
+              <img src="画像/定番シリーズ/商品2.jpg" alt="商品2 細長いフォーム" loading="lazy" />
             </figure>
             <figure class="series-rect">
-              <img src="画像/定番シリーズ/商品へのコピー3_0.jpg" alt="ドーナツ型タイプ" loading="lazy" />
-              <figcaption>
-                <span class="series-label">DONUT</span>
-                <p>ドーナツ型タイプ</p>
-              </figcaption>
+              <img src="画像/定番シリーズ/商品3.jpg" alt="商品3 ドーナツ型" loading="lazy" />
             </figure>
           </div>
         </div>
-        <div class="series-row">
-          <figure>
-            <img src="画像/定番シリーズ/商品１.jpg" alt="極厚6cmタイプ" loading="lazy" />
-            <figcaption>極厚6cmタイプ</figcaption>
-          </figure>
-          <figure>
-            <img src="画像/定番シリーズ/商品へ３.jpg" alt="大判タイプ" loading="lazy" />
-            <figcaption>大判タイプ</figcaption>
-          </figure>
-          <figure>
-            <img src="画像/定番シリーズ/商品へ４.jpg" alt="通常タイプ" loading="lazy" />
-            <figcaption>通常タイプ</figcaption>
+        <div class="series-collage series-collage--reversed">
+          <div class="series-side">
+            <figure class="series-rect">
+              <img src="画像/定番シリーズ/商品4.jpg" alt="商品4 ハイサポートタイプ" loading="lazy" />
+            </figure>
+            <figure class="series-rect">
+              <img src="画像/定番シリーズ/商品5.jpg" alt="商品5 カラーカバータイプ" loading="lazy" />
+            </figure>
+          </div>
+          <figure class="series-main">
+            <img src="画像/定番シリーズ/商品6.jpg" alt="商品6 プレミアムスクエア" loading="lazy" />
           </figure>
         </div>
       </section>
 
       <section class="message-section">
         <article class="concept-hero">
-          <img src="画像/ブランドコンセプト.png" alt="ブランドコンセプト" />
-          <div class="concept-copy">
-            <p class="eyebrow">BRAND CONCEPT</p>
-            <h2>透明感のある上質さで、正しい心地をデザインする。</h2>
-            <p>relax heal は、医療の現場で得た知見をもとに「座りすぎ」を整えるプロダクトを開発。ゲルと低反発のレイヤー、肌にとろけるカバー、そして空間に馴染むカラーで、姿勢とメンタルを優しく支えます。</p>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">BRAND CONCEPT</p>
+              <h2>ブランドコンセプト</h2>
+            </div>
+          </div>
+          <div class="concept-image-wrapper">
+            <img src="画像/ブランドコンセプト.png" alt="ブランドコンセプト" />
+            <div class="concept-copy">
+              <h3>透明感のある上質さで、正しい心地をデザインする。</h3>
+              <p>relax heal は、医療の現場で得た知見をもとに「座りすぎ」を整えるプロダクトを開発。ゲルと低反発のレイヤー、肌にとろけるカバー、そして空間に馴染むカラーで、姿勢とメンタルを優しく支えます。</p>
+            </div>
           </div>
         </article>
         <article class="commitment-card">
+          <div class="signature-visual">
+            <img src="画像/こだわり.jpg" alt="リラックスヒールのこだわり" loading="lazy" />
+          </div>
           <div class="commitment-text">
             <p class="eyebrow">RELAX HEAL SIGNATURE</p>
-            <h2>リラックスヒールの商品へのこだわり</h2>
-            <p>ねこぜ京都・中村先生と共創した圧分散メソッドをベースに、骨盤を包むゲルグリッドと低反発層を丁寧に調整。正方形・ドーナツ・極厚タイプなど、使う人やシーンに合わせたバリエーションを揃えています。</p>
-            <p>素肌に触れてもさらりとしたカバー、長時間でも蒸れにくい通気構造、そして落ち着いたニュートラルカラーで、暮らしの質をそっと底上げします。</p>
-          </div>
-          <div class="commitment-visual">
-            <img src="画像/こだわり.jpg" alt="リラックスヒールのこだわり" loading="lazy" />
+            <h2>リラックスヒールが大切にしている3つのこと</h2>
+            <div class="signature-points">
+              <section>
+                <h3>1. 医療監修ライン</h3>
+                <p>骨盤と尾骨のラインを毎シーズン検証し、体圧が分散される角度を算出。</p>
+              </section>
+              <section>
+                <h3>2. 日常を邪魔しない触感</h3>
+                <p>さらりとした肌触りと、通気性を保つグリッド配置で長時間でも快適。</p>
+              </section>
+              <section>
+                <h3>3. 空間に調和するカラー</h3>
+                <p>ピュアホワイトからグレージュまで同系色でまとめ、ワークスペースにも馴染ませます。</p>
+              </section>
+            </div>
           </div>
         </article>
       </section>
@@ -313,24 +282,40 @@
         </div>
         <div class="news-grid">
           <article>
-            <p class="date">2024.04.05</p>
-            <a href="#" class="news-title">春のクリニック監修フェア</a>
-            <p>季節に合わせた骨盤ケアの座り方を、中村先生がライブでレクチャー。</p>
+            <div class="news-date">
+              <p class="date">2025.09.01</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">読売テレビ「バズるの泉」で卵が割れない座り心地が特集されました</a>
+              <p>スタジオでの実験を通じて、ゲルクッションの圧分散構造と開発ストーリーが紹介されました。放送直後からお問い合わせが急増しています。</p>
+            </div>
           </article>
           <article>
-            <p class="date">2024.03.28</p>
-            <a href="#" class="news-title">人気YouTuberばばしさん取材</a>
-            <p>女性トラックドライバー視点で「卵が割れない」実証を公開。</p>
+            <div class="news-date">
+              <p class="date">2025.01.10</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">「2025年ヒットの予感」特集に選ばれました</a>
+              <p>暮らしを変えるアイテムとして、relax heal のゲルクッションが掲載。座る姿勢そのものをデザインするブランドとして評価されています。</p>
+            </div>
           </article>
           <article>
-            <p class="date">2024.02.10</p>
-            <a href="#" class="news-title">バズるの泉オンエア</a>
-            <p>テレビ番組での反響を受け、限定色とセット販売を開始しました。</p>
+            <div class="news-date">
+              <p class="date">2023.10.01</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">楽天リアルタイムランキング（クッション）で第1位を獲得</a>
+              <p>在宅ワーク需要の高まりと口コミが追い風となり、リアルタイムランキングで1位に。長時間座りの悩みを解消したという声が多数届いています。</p>
+            </div>
           </article>
           <article>
-            <p class="date">2024.01.16</p>
-            <a href="#" class="news-title">ヒットの予感 掲載</a>
-            <p>ゲルと低反発の二層構造が「信頼できるケア」として紹介されました。</p>
+            <div class="news-date">
+              <p class="date">2020.09.18</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">人気YouTuberばばしさんのレビュー動画が公開</a>
+              <p>全国を走る女性トラックドライバー・ばばしさんに使っていただき、長距離運転が楽になったというリアルな声を紹介いただきました。</p>
+            </div>
           </article>
         </div>
       </section>
