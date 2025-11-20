@@ -696,10 +696,10 @@ img {
 .magazine-images {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 12px;
   align-items: flex-start;
-  max-width: 480px;
+  max-width: 280px;
 }
 
 .magazine-images img {
@@ -736,15 +736,16 @@ img {
   font-size: 0.68rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .media-magazine-card {
     flex-direction: column;
     gap: 12px;
     padding: 16px;
   }
   .magazine-images {
-    grid-template-columns: 1fr 1fr;
-    max-width: 100%;
+    grid-template-columns: 1fr;
+    max-width: 200px;
+    margin: 0 auto;
   }
   .magazine-copy {
     gap: 3px;
