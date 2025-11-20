@@ -58,10 +58,15 @@ img {
 .header-top {
   background: #e8f3ff;
   padding: 10px 24px;
+  font-size: 14px;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
 }
 
 .logo-text {
@@ -146,15 +151,14 @@ img {
 }
 
 .hero-carousel {
+  width: 100%;
   padding: clamp(12px, 2vw, 24px) 24px 60px;
   background: linear-gradient(180deg, #f5fbff, #eef5ff);
-  max-width: 1248px;
-  margin: 0 auto;
 }
 
 .carousel-window {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   position: relative;
   overflow: hidden;
