@@ -1378,14 +1378,13 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* PC / タブレットレイアウト */
 @media (min-width: 768px) {
   .product-series-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
     gap: 4px;
   }
 
