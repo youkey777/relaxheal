@@ -724,14 +724,14 @@ img {
 }
 
 .magazine-copy h3 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.35;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 }
 
 .magazine-copy p {
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -755,12 +755,12 @@ img {
     padding: 0;
   }
   .magazine-copy h3 {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.3;
   }
   .magazine-copy p {
-    font-size: 0.76rem;
-    line-height: 1.45;
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 }
 
