@@ -1064,11 +1064,13 @@ img {
 
 @media (max-width: 900px) {
   .supervision-grid {
-    grid-template-columns: 250px 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
   .supervision-section .image-frame {
-    align-self: start;
+    align-self: center;
+    max-width: 360px;
+    margin: 0 auto;
   }
   .supervision-section .image-frame img {
     max-width: 100%;
@@ -1171,8 +1173,13 @@ img {
     padding: 24px;
   }
   .supervision-grid {
-    grid-template-columns: 225px 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .supervision-section .image-frame {
+    align-self: center;
+    max-width: 300px;
+    margin: 0 auto;
   }
   .supervision-section .image-frame img {
     max-width: 100%;
