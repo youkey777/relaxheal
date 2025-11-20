@@ -1386,7 +1386,8 @@ img {
   .product-series-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 10px;
   }
 
   .product-series-item {
