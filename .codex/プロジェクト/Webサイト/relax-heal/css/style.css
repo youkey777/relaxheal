@@ -696,10 +696,10 @@ img {
 .magazine-images {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   align-items: flex-start;
-  max-width: 280px;
+  max-width: 200px;
 }
 
 .magazine-images img {
@@ -743,8 +743,8 @@ img {
     padding: 16px;
   }
   .magazine-images {
-    grid-template-columns: 1fr;
-    max-width: 200px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 180px;
     margin: 0 auto;
   }
   .magazine-copy {
@@ -1383,7 +1383,8 @@ img {
 /* PC / タブレットレイアウト */
 @media (min-width: 768px) {
   .product-series-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(250px, auto);
     gap: 20px;
   }
 
@@ -1394,5 +1395,15 @@ img {
   .product-series-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* 正方形カードは2行分を占有 */
+  .product-series-item--square {
+    grid-row: span 2;
+  }
+
+  /* 長方形カードは1行分 */
+  .product-series-item--wide {
+    grid-row: span 1;
   }
 }
