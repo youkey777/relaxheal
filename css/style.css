@@ -148,6 +148,8 @@ img {
 .hero-carousel {
   padding: clamp(12px, 2vw, 24px) 24px 60px;
   background: linear-gradient(180deg, #f5fbff, #eef5ff);
+  max-width: 1248px;
+  margin: 0 auto;
 }
 
 .carousel-window {
