@@ -397,15 +397,10 @@ img {
 
 .category-children {
   list-style: none;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease;
-  margin-top: 0;
-  padding: 0 0 0 14px;
-}
-
-.category-item.is-open .category-children {
+  max-height: none;
+  overflow: visible;
   margin-top: 10px;
+  padding: 0 0 0 14px;
 }
 
 .category-children li {
@@ -707,7 +702,7 @@ img {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   align-items: flex-start;
-  max-width: 400px;
+  max-width: 480px;
 }
 
 .magazine-images img {
@@ -752,7 +747,7 @@ img {
   }
   .magazine-images {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 300px;
+    max-width: 360px;
     margin: 0 auto;
   }
   .magazine-copy {
@@ -1199,6 +1194,13 @@ img {
   .commitment-card {
     padding: 18px 16px;
     gap: 12px;
+  }
+  .signature-visual {
+    display: block;
+  }
+  .signature-visual img {
+    display: block;
+    width: 100%;
   }
   .commitment-text h2 {
     font-size: 1.08rem;
