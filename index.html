@@ -1,1081 +1,398 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sauna Crown | 本格サウナハットブランド</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #060607;
-        --ink: #f5f5f1;
-        --muted: #bfbfb8;
-        --accent: #f6d64a;
-        --accent-alt: #ff6e48;
-        --card: #121217;
-        --line: rgba(255, 255, 255, 0.08);
-        --radius: 28px;
-        --transition: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
-        --ticker-bg: #2a1c14;
-        --ticker-ink: #fff7e0;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
-          "Helvetica Neue", "Segoe UI", "Yu Gothic", sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-        line-height: 1.7;
-        letter-spacing: 0.01em;
-        overflow-x: hidden;
-      }
-
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .ticker {
-        position: sticky;
-        top: 0;
-        z-index: 160;
-        background: var(--ticker-bg);
-        color: var(--ticker-ink);
-        font-weight: 500;
-        letter-spacing: 0.18em;
-        overflow: hidden;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .ticker-track {
-        display: flex;
-        width: max-content;
-        animation: ticker 22s linear infinite;
-      }
-
-      .ticker span {
-        padding: 10px 32px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 0.8rem;
-        white-space: nowrap;
-      }
-
-      @keyframes ticker {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      header {
-        position: sticky;
-        top: 38px;
-        z-index: 140;
-        background: rgba(6, 6, 7, 0.85);
-        border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(16px);
-      }
-
-      .nav-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 14px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logo-img {
-        display: block;
-        height: 36px;
-        width: auto;
-        object-fit: contain;
-        background: #000;
-        padding: 2px 4px 2px 6px;
-        border-radius: 4px;
-      }
-
-      .logo span {
-        letter-spacing: 0.4em;
-        font-size: 0.8rem;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 28px;
-        margin: 0;
-        padding: 0;
-      }
-
-      nav a {
-        color: var(--muted);
-        font-size: 0.9rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-
-      nav a:hover {
-        color: var(--ink);
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 28px;
-        border-radius: 999px;
-        border: 1px solid var(--ink);
-        font-size: 0.8rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
-      }
-
-      .btn:hover {
-        background: var(--ink);
-        color: #050505;
-      }
-
-      .btn-outline {
-        border-color: rgba(255, 255, 255, 0.4);
-        color: var(--ink);
-      }
-
-      .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .btn-ghost {
-        border-color: transparent;
-        color: var(--ink);
-        letter-spacing: 0.3em;
-      }
-
-      .hamburger {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        background: transparent;
-        color: var(--ink);
-      }
-
-      .hamburger span {
-        width: 18px;
-        height: 1px;
-        background: currentColor;
-      }
-
-      .mobile-nav {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(5, 5, 6, 0.94);
-        z-index: 130;
-        padding: 90px 24px 40px;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .mobile-nav a {
-        font-size: 1rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px 80px;
-      }
-
-      .section-eyebrow {
-        display: inline-flex;
-        letter-spacing: 0.28em;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        color: var(--muted);
-        margin-bottom: 10px;
-      }
-
-      .section-title {
-        margin: 0 0 28px;
-        font-size: clamp(1.6rem, 3vw, 2.3rem);
-      }
-
-      .hero {
-        position: relative;
-        min-height: 90vh;
-        padding-top: 60px;
-        overflow: visible;
-      }
-
-      .collage {
-        position: relative;
-        min-height: 70vh;
-      }
-
-      .collage-item {
-        position: absolute;
-        width: clamp(160px, 26vw, 320px);
-        height: clamp(190px, 32vw, 420px);
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 2px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
-        transition: transform 0.6s ease, filter 0.6s ease;
-        background: #050505;
-        padding: 6px;
-      }
-
-      .collage-item img {
-        border-radius: calc(var(--radius) - 8px);
-      }
-
-      .collage-item figcaption {
-        position: absolute;
-        bottom: 12px;
-        left: 16px;
-        background: rgba(0, 0, 0, 0.55);
-        padding: 4px 12px;
-        border-radius: 999px;
-        font-size: 0.7rem;
-        letter-spacing: 0.2em;
-      }
-
-      .collage-item:hover {
-        transform: translateY(-10px) scale(1.02);
-        filter: saturate(1.15);
-      }
-
-      .collage-item:nth-child(1) {
-        top: 4%;
-        left: 6%;
-        transform: rotate(-4deg);
-      }
-
-      .collage-item:nth-child(2) {
-        top: -2%;
-        right: 18%;
-        transform: rotate(5deg);
-      }
-
-      .collage-item:nth-child(3) {
-        top: 42%;
-        left: 2%;
-        width: clamp(180px, 30vw, 360px);
-        height: clamp(200px, 30vw, 380px);
-        transform: rotate(7deg);
-      }
-
-      .collage-item:nth-child(4) {
-        top: 32%;
-        right: 6%;
-        transform: rotate(-7deg);
-      }
-
-      .collage-item:nth-child(5) {
-        top: 60%;
-        left: 30%;
-        transform: rotate(-3deg);
-      }
-
-      .collage-item:nth-child(6) {
-        top: 16%;
-        left: 38%;
-        width: clamp(160px, 22vw, 280px);
-        height: clamp(200px, 28vw, 360px);
-        transform: rotate(8deg);
-      }
-
-      .collage-item:nth-child(7) {
-        top: 58%;
-        right: 32%;
-        width: clamp(180px, 24vw, 320px);
-        height: clamp(210px, 30vw, 380px);
-        transform: rotate(2deg);
-      }
-
-      .collage-item:nth-child(8) {
-        top: 10%;
-        right: 0;
-        width: clamp(140px, 18vw, 220px);
-        height: clamp(180px, 24vw, 300px);
-        transform: rotate(-9deg);
-      }
-
-      .hero-text {
-        position: relative;
-        max-width: 540px;
-        margin: 40px auto 0;
-        padding: 28px 24px 30px;
-        background: rgba(6, 6, 7, 0.78);
-        border-radius: 32px;
-        border: 1px solid var(--line);
-        backdrop-filter: blur(18px);
-        text-align: center;
-      }
-
-      .hero-text small {
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        font-size: 0.7rem;
-        color: var(--muted);
-      }
-
-      .hero-text h1 {
-        margin: 18px 0 14px;
-        font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        font-size: clamp(2.1rem, 4.4vw, 3.1rem);
-        line-height: 1.5;
-      }
-
-      .hero-text h1 span {
-        display: block;
-      }
-
-      .hero-text h1 span:first-child {
-        font-size: 0.96em;
-      }
-
-      .hero-text h1 span:last-child {
-        font-size: 1.08em;
-      }
-
-      .hero-text p {
-        margin-bottom: 24px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .hero-actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .info-strip {
-        margin: 40px 0 80px;
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        display: flex;
-        justify-content: center;
-        gap: 26px;
-        flex-wrap: wrap;
-        font-size: 0.85rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .scrap-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-      }
-
-      .scrap-card {
-        padding: 16px;
-        border-radius: var(--radius);
-        background: var(--card);
-        border: 1px solid var(--line);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .scrap-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 60%);
-        pointer-events: none;
-      }
-
-      .scrap-image {
-        aspect-ratio: 4 / 3;
-        overflow: hidden;
-        border-radius: calc(var(--radius) - 6px);
-        margin-bottom: 10px;
-        background: #050505;
-      }
-
-      .scrap-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .scrap-card h3 {
-        margin: 0 0 6px;
-        font-size: 0.95rem;
-      }
-
-      .scrap-card p {
-        color: var(--muted);
-        margin: 0;
-        font-size: 0.85rem;
-        line-height: 1.6;
-      }
-
-      .media {
-        margin: 96px auto 0;
-      }
-
-      .media-feature {
-        position: relative;
-        border-radius: var(--radius);
-        overflow: hidden;
-        background:
-          radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 55%),
-          radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.06), transparent 55%),
-          #111318;
-      }
-
-      .media-feature img {
-        width: 100%;
-        height: 100%;
-        max-height: 420px;
-        object-fit: cover;
-      }
-
-      .media-content {
-        position: absolute;
-        inset: auto 0 0 0;
-        padding: 24px 28px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .media-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.75rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        padding: 4px 12px;
-        border-radius: 999px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-      }
-
-      .media-sub {
-        font-size: 0.85rem;
-        color: var(--muted);
-      }
-
-      .lineup-grid {
-        display: grid;
-        gap: 24px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-
-      .lineup-item {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 16px;
-        border: 1px solid var(--line);
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .lineup-item figure {
-        margin: 0;
-        border-radius: calc(var(--radius) - 6px);
-        overflow: hidden;
-        padding: 14px;
-        background: #0c0d10;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .lineup-item figure img {
-        border-radius: 14px;
-        transition: transform 0.6s ease, filter 0.6s ease;
-      }
-
-      .lineup-item:hover figure img {
-        transform: scale(1.07);
-        filter: saturate(1.1);
-      }
-
-      .tag {
-        font-size: 0.7rem;
-        letter-spacing: 0.3em;
-        color: var(--muted);
-      }
-
-      .price {
-        font-weight: 700;
-        font-size: 1.05rem;
-      }
-
-      .lineup-more {
-        margin-top: 18px;
-        text-align: center;
-      }
-
-      .concept-visual {
-        margin: 120px 0 80px;
-      }
-
-      .concept-visual figure {
-        margin: 0;
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 1px solid var(--line);
-      }
-
-      .issues-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-      }
-
-      .issue-card {
-        border-radius: var(--radius);
-        border: 1px solid var(--line);
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        background: var(--card);
-      }
-
-      .issue-thumb {
-        margin: 0;
-        border-radius: calc(var(--radius) - 12px);
-        overflow: hidden;
-        border: 1px solid var(--line);
-        height: 160px;
-      }
-
-      .issue-card h4 {
-        margin: 0;
-        font-size: 1.05rem;
-      }
-
-      .issue-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .cta {
-        margin: 120px auto 0;
-        text-align: center;
-        border-radius: var(--radius);
-        border: 1px solid var(--line);
-        padding: 60px 30px;
-        background:
-          radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 60%),
-          #111218;
-      }
-
-      footer {
-        padding: 60px 24px;
-        text-align: center;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-bottom: 18px;
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-
-      .fade-up.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 980px) {
-        nav ul {
-          display: none;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .mobile-nav.open {
-          display: flex;
-        }
-
-        .hero {
-          padding-top: 20px;
-        }
-
-        .collage {
-          position: relative;
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-          padding: 40px 16px 24px;
-          justify-items: center;
-          overflow: visible;
-          min-height: auto;
-        }
-
-        .collage-item {
-          position: static !important;
-          width: 100% !important;
-          max-width: 480px;
-          height: auto !important;
-          margin: 0 auto;
-          padding: 6px;
-          border-radius: var(--radius);
-          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-          transform: none !important;
-        }
-
-        .collage-item img {
-          width: 100%;
-          height: auto !important;
-          object-fit: contain;
-          border-radius: calc(var(--radius) - 8px);
-        }
-
-        .collage-item:nth-child(3n + 1) {
-          transform: translateX(-4%) rotate(-1.5deg);
-        }
-
-        .collage-item:nth-child(3n + 2) {
-          transform: translateX(3%) rotate(1.5deg);
-        }
-
-        .collage-item:nth-child(3n) {
-          transform: translateX(0%) rotate(-2deg);
-        }
-      }
-
-      @media (max-width: 768px) {
-        main {
-          padding: 0 18px 60px;
-        }
-
-        .info-strip {
-          letter-spacing: 0.1em;
-        }
-
-        .scrap-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 14px;
-        }
-
-        .scrap-card {
-          padding: 12px;
-        }
-
-        .lineup-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 14px;
-        }
-
-        .lineup-item {
-          padding: 12px;
-        }
-      }
-
-      @media (min-width: 769px) and (max-width: 1023px) {
-        .lineup-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .lineup-item:nth-child(4) {
-          display: none;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .lineup-grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 640px) {
-        .ticker span {
-          letter-spacing: 0.08em;
-          font-size: 0.7rem;
-          padding: 10px 18px;
-        }
-
-        .hero-text {
-          margin-top: 24px;
-          padding: 22px 18px 26px;
-        }
-
-        .hero-text h1 {
-          font-size: 1.9rem;
-          line-height: 1.6;
-          letter-spacing: 0.04em;
-        }
-
-        .hero-text p {
-          font-size: 0.85rem;
-        }
-
-        .scrap-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 12px;
-        }
-
-        .scrap-card {
-          padding: 10px;
-        }
-      }
-    </style>
-  </head>
-  <body id="top">
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
-        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
-        <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
-        <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
-        <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
-        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
-        <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
-        <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Relax Heal Online | 座り心地をデザインするケアブランド</title>
+  <meta name="description" content="医療監修のゲルクッションと姿勢ケア雑貨を展開する Relax Heal のブランドトップページ。新作やランキング、監修情報をお届けします。" />
+  <!-- Last updated: 2025-11-20 - Adjusted media magazine text size to match supervision section -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="logo-text">RELAX HEAL OFFICIAL</div>
+      <div class="quick-links">
+        <a href="#">お気に入り</a>
+        <a href="#">ログイン</a>
+        <a href="#">カート</a>
       </div>
     </div>
+    <div class="nav-bar">
+      <nav class="global-nav">
+        <ul>
+          <li class="has-dropdown">
+            <a href="#">商品カテゴリー</a>
+            <div class="dropdown-panel">
+              <a href="#">まくら・抱きまくら</a>
+              <a href="#">クッション</a>
+              <a href="#">ソファ・チェア</a>
+              <a href="#">雑貨</a>
+              <a href="#">マタニティ・ベビー</a>
+              <a href="#">トラベル・アウトドア</a>
+              <a href="#">介護ケア</a>
+            </div>
+          </li>
+          <li><a href="#">ご利用ガイド</a></li>
+          <li><a href="#">よくある質問</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <form class="search-form" aria-label="商品検索">
+        <input type="text" placeholder="キーワードを入力" />
+        <button type="submit" aria-label="検索">🔍</button>
+      </form>
+    </div>
+  </header>
 
-    <header>
-      <div class="nav-inner">
-        <a class="logo" href="#top">
-          <img src="ロゴ/s-nega.jpg" alt="Sauna Crown ロゴ" class="logo-img" />
-          <span>SAUNA CROWN</span>
-        </a>
-        <nav>
-          <ul>
-            <li><a href="#store">Store</a></li>
-            <li><a href="#concept">Concept</a></li>
-            <li><a href="#media">Media</a></li>
-            <li><a href="#issues">Issues</a></li>
-            <li><a class="btn-ghost" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Cart</a></li>
-          </ul>
-        </nav>
-        <button class="hamburger" type="button" aria-label="メニュー">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <section class="hero-carousel">
+    <div class="carousel-window">
+      <div class="carousel-track">
+        <article class="carousel-slide active">
+          <img src="画像/カルーセル/カルーセル1.jpg" alt="元世界王者畑山さんとの対談" />
+          <div class="slide-body">
+            <h2>畑山さんと語る"正しい心地"</h2>
+          </div>
+        </article>
+        <article class="carousel-slide">
+          <img src="画像/カルーセル/カルーセル2.jpg" alt="接骨院院長による監修風景" />
+          <div class="slide-body">
+            <h2>接骨院院長が監修した、人の骨格に沿う設計。</h2>
+          </div>
+        </article>
+        <article class="carousel-slide no-text">
+          <img src="画像/カルーセル/カルーセル3.jpg" alt="低反発クッション" />
+        </article>
+        <article class="carousel-slide no-text">
+          <img src="画像/カルーセル/カルーセル4.jpg" alt="楽天ランキング1位獲得" />
+        </article>
       </div>
-    </header>
+      <button class="carousel-btn next" aria-label="次のスライド">›</button>
+      <div class="carousel-dots" aria-label="カルーセルのページ送り"></div>
+    </div>
+  </section>
 
-    <nav class="mobile-nav" aria-label="モバイルメニュー">
-      <a href="#store">Store</a>
-      <a href="#concept">Concept</a>
-      <a href="#media">Media</a>
-      <a href="#issues">Issues</a>
-      <a href="#lineup">Lineup</a>
-      <a href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Amazon Store</a>
-    </nav>
+  <div class="main-wrapper">
+    <aside class="category-panel">
+      <div class="category-head">
+        <p class="eyebrow">CATEGORY</p>
+        <h3>商品カテゴリー</h3>
+      </div>
+      <a class="category-all-btn" href="#">すべての商品を見る</a>
+      <div class="category-item is-open">
+        <button aria-expanded="true">ゲルクッション</button>
+        <ul class="category-children">
+          <li><a href="#">通常サイズ</a></li>
+          <li><a href="#">大判サイズ</a></li>
+          <li><a href="#">カラーカバー</a></li>
+          <li><a href="#">極厚タイプ</a></li>
+          <li><a href="#">ドーナツ型</a></li>
+        </ul>
+      </div>
+      <div class="category-item">
+        <button aria-expanded="false">低反発</button>
+      </div>
+      <div class="category-item">
+        <button aria-expanded="false">首枕</button>
+      </div>
+    </aside>
 
-    <main>
-      <section class="hero" id="store">
-        <div class="collage">
-          <figure class="collage-item" data-style="wide">
-            <img src="画像/カルーセル/P1036574.JPG" alt="Sauna Crown ハットの質感" />
-            <figcaption>deep fit</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="portrait">
-            <img src="画像/カルーセル/P1047830.JPG" alt="サウナで整うサウナー" />
-            <figcaption>ritual</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="square">
-            <img src="画像/カルーセル/メイン.jpg" alt="サウナクラウンのカラー" />
-            <figcaption>color lab</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="wide">
-            <img src="画像/カルーセル/選ばれる理由.png" alt="サウナハットのディテール" />
-            <figcaption>detail</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="square">
-            <img src="画像/カルーセル/WqrcIfv1RJ_qW-HeDFryR_f36cc1d2ce844972adc92aa61f55e092.png" alt="サウナフェスで映えるルック" />
-            <figcaption>fesaura</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="square">
-            <img src="画像/カルーセル/１のコピー28.jpg" alt="テントサウナとの相性" />
-            <figcaption>outdoor</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="portrait" data-fit="contain">
-            <img src="画像/カルーセル/没の方.png" alt="ロウリュの蒸気" />
-            <figcaption>steam</figcaption>
-          </figure>
-          <figure class="collage-item" data-style="portrait" data-fit="contain">
-            <img src="画像/カルーセル/１のコピー7.png" alt="Sauna Crown グラフィック" />
-            <figcaption>gear</figcaption>
-          </figure>
+    <main class="product-area">
+      <section class="media-section" id="media">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">MEDIA FEATURE</p>
+            <h2>メディア掲載</h2>
+          </div>
         </div>
-        <div class="hero-text fade-up">
-          <small>Sauna Crown is sauna hat brand from Japan</small>
-          <h1>
-            <span>サ室もサウナハットも、</span>
-            <span>Sauna Crownが熱い。</span>
-          </h1>
-          <p>
-            常設常湿のサウナ室でもテントサウナでも、目元まで沈める没入シルエットと“サウナ専用カラー”で整う時間をデザインします。
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Amazon Brand Store</a>
-            <a class="btn btn-outline" href="#media">Media Pick</a>
+        <div class="media-stack">
+          <article class="media-card">
+            <div class="media-meta">
+              <p class="small">テレビ番組</p>
+              <h3>バズるの泉（読売テレビ）</h3>
+            </div>
+            <video class="media-video" controls muted preload="none" playsinline poster="画像/メディア一覧/動画にはるサムネ.png">
+              <source src="画像/メディア一覧/バズるの泉.mov" type="video/quicktime" />
+              お使いの環境では動画を再生できません。
+            </video>
+            <p class="small">卵が割れない検証をスタジオで実演。動画はミュート再生で雰囲気だけお楽しみいただけます。</p>
+          </article>
+          <article class="media-card">
+            <div class="media-meta">
+              <p class="small">YouTube</p>
+              <h3>女性トラックドライバー ばばしさん</h3>
+            </div>
+            <video class="media-video" controls muted preload="none" playsinline poster="画像/メディア一覧/ばばしサムネ.png">
+              <source src="画像/メディア一覧/ばばし動画.mp4" type="video/mp4" />
+              お使いの環境では動画を再生できません。
+            </video>
+            <p class="small">長距離移動でも姿勢が崩れにくいポイントをレビューで紹介。こちらの動画も常時ミュートで再生されます。</p>
+          </article>
+        </div>
+        <div class="media-magazine">
+          <article class="media-magazine-card">
+            <div class="magazine-images">
+              <img src="画像/メディア一覧/ヒットの予感表紙.png" alt="ヒットの予感 表紙" loading="lazy" />
+              <img src="画像/メディア一覧/ヒットの予感掲載ページ.png" alt="ヒットの予感 掲載ページ" loading="lazy" />
+            </div>
+            <div class="magazine-copy">
+              <p class="small eyebrow">HIT PREDICTIONS 2025</p>
+              <h3>暮らしを変えるプロダクトとして掲載</h3>
+              <p>「座り方そのものをデザインする」ブランドとして、ヒットの予感特集にて2ページにわたり紹介。紙面ではゲルレイヤーの断面や使い方のポイントも丁寧に解説されています。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="supervision-section" id="supervision">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">RELAX HEAL × NAKAMURA CLINIC</p>
+            <h2>医療監修の信頼と実績</h2>
+          </div>
+          <a href="https://nekoze-kyoto.jp/" target="_blank" rel="noopener" class="btn-link">中村接骨院を確認</a>
+        </div>
+        <div class="supervision-grid">
+          <div class="image-frame">
+            <img src="画像/中村先生.jpg" alt="中村先生" />
+          </div>
+          <div>
+            <h3>姿勢ケアと睡眠の専門院が立ち上げから伴走。</h3>
+            <p>京都の姿勢ケア接骨院「ねこぜ京都」院長 中村先生が、骨盤ラインと尾骨の圧を逃がす構造を監修。製品開発の初期段階から、医療の現場で培った知見を活かし、座り姿勢の改善をサポートしています。</p>
           </div>
         </div>
       </section>
-
-      <section class="info-strip fade-up" aria-label="ブランドインフォメーション">
-        <span>♨ 常設常湿 / Deep Sauna Gear</span>
-        <span>🧖‍♂ ユニセックス・ロングフィット</span>
-        <span>🔥 中価格帯の本格派</span>
-        <span>📦 Amazon ブランドストア出荷</span>
-      </section>
-
-      <section class="concept fade-up" id="concept">
-        <span class="section-eyebrow">Concept</span>
-        <h2 class="section-title">常設常湿で、贅沢な癒し体験を日常に。</h2>
-        <div class="scrap-grid">
-          <article class="scrap-card">
-            <div class="scrap-image">
-              <img src="画像/コンセプト/没入シルエット.png" alt="没入シルエット" />
-            </div>
-            <h3>視線を遮断する没入シルエット</h3>
-            <p>目元まで深く下ろせる断面で光量を抑制。サ室でも外気浴でも呼吸と鼓動に集中できる“内省モード”を用意します。</p>
+      <section class="products-block">
+        <div class="products-header">
+          <div>
+            <p class="eyebrow">NEW ARRIVAL</p>
+            <h2>新着アイテム</h2>
+          </div>
+          <a href="#" class="btn-link">もっと見る</a>
+        </div>
+        <div class="product-grid three-up">
+          <article class="product-card">
+            <span class="product-badge">新商品</span>
+            <img src="画像/新着商品/新着1NEW.jpg" alt="新着ゲルクッション 1" />
+            <h3>プレミアムゲル TWIN</h3>
+            <p class="price">¥4,980</p>
           </article>
-          <article class="scrap-card">
-            <div class="scrap-image">
-              <img src="画像/コンセプト/サウナ専用カラー.png" alt="サウナ専用カラー" />
-            </div>
-            <h3>カラーラボ発・サウナ専用カラー</h3>
-            <p>ウッド、蒸気、夜空。サウナの風景から抽出したトーンで、男女問わずかぶりやすいユニセックスなパレットを展開。</p>
+          <article class="product-card">
+            <span class="product-badge limited">数量限定</span>
+            <img src="画像/新着商品/新着2NEW.jpg" alt="新着ゲルクッション 2" />
+            <h3>ハニカムビッグタイプ</h3>
+            <p class="price">¥5,280</p>
           </article>
-          <article class="scrap-card">
-            <div class="scrap-image">
-              <img src="画像/コンセプト/本格クオリティ.png" alt="本格クオリティ" />
-            </div>
-            <h3>綿主体で洗える本格クオリティ</h3>
-            <p>綿100%を軸にしたタフな素材設計で、熱から頭部を守りつつ扱いやすさも確保。毎週サ活に通う人の相棒ギアです。</p>
+          <article class="product-card">
+            <span class="product-badge">新商品</span>
+            <img src="画像/新着商品/新着3NEW.png" alt="新着ゲルクッション 3" />
+            <h3>ドライバーズサポート</h3>
+            <p class="price">¥3,960</p>
+          </article>
+          <article class="product-card mobile-only">
+            <span class="product-badge">新商品</span>
+            <img src="画像/新着商品/新着商品4.jpg" alt="新着ゲルクッション 4" />
+            <h3>コンフォートプラス</h3>
+            <p class="price">¥4,580</p>
           </article>
         </div>
       </section>
-
-      <section class="media fade-up" id="media">
-        <span class="section-eyebrow">Media</span>
-        <h2 class="section-title">サウナ専門誌「SAUNABROS」に掲載されました。</h2>
-        <div class="media-feature">
-          <img src="画像/メディア掲載.png" alt="サウナブロス誌面" />
-          <div class="media-content">
-            <div class="media-label">
-              <span>MEDIA</span>
-              <span>SAUNABROS</span>
-            </div>
-            <p>
-              サウナ専門誌『SAUNABROS』で、Sauna Crown のサウナハットが本格ギアとして紹介されました。
-            </p>
-            <p class="media-sub">
-              深くかぶれるシルエットや“サウナ専用カラー”へのこだわりが、サウナを愛する読者向けにピックアップされています。
-            </p>
+      <section class="product-series-block" id="product-series">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">PRODUCT SERIES</p>
+            <h2>商品シリーズ</h2>
           </div>
         </div>
-      </section>
 
-      <section class="lineup fade-up" id="lineup">
-        <span class="section-eyebrow">Lineup</span>
-        <h2 class="section-title">Sauna Crown Gear Line</h2>
-        <div class="lineup-grid">
-          <article class="lineup-item">
-            <span class="tag">Deep Fit</span>
-            <figure>
-              <img src="画像/Gear　Line/1.jpg" alt="Deep Shade ブラック" />
-            </figure>
-            <h3>Deep Shade / Black</h3>
-            <p>ロウリュの熱を遮りやすい厚手設計。視界を落として没入したい本格サウナーに向けた定番ブラック。</p>
-            <div class="price">¥6,800</div>
-            <a class="btn btn-outline" href="#">Buy on Amazon</a>
-          </article>
-          <article class="lineup-item">
-            <span class="tag">Festival</span>
-            <figure>
-              <img src="画像/Gear　Line/2.jpg" alt="Glacier Moss グリーン" />
-            </figure>
-            <h3>Glacier Moss / Green</h3>
-            <p>サウナフェスや外気浴の芝生にも馴染む青みグリーン。写真映えするアクセントカラー。</p>
-            <div class="price">¥7,200</div>
-            <a class="btn btn-outline" href="#">Buy on Amazon</a>
-          </article>
-          <article class="lineup-item">
-            <span class="tag">Limited</span>
-            <figure>
-              <img src="画像/Gear　Line/3.jpg" alt="Sand Silence ベージュ" />
-            </figure>
-            <h3>Sand Silence / Beige</h3>
-            <p>ウッドベンチやタープと馴染む柔らかなベージュ。ユニセックスにかぶれる落ち着いたトーンです。</p>
-            <div class="price">¥7,800</div>
-            <a class="btn btn-outline" href="#">Buy on Amazon</a>
-          </article>
-          <article class="lineup-item">
-            <span class="tag">New</span>
-            <figure>
-              <img src="画像/Gear　Line/4.png" alt="Prism Mist ホワイト" />
-            </figure>
-            <h3>Prism Mist / White</h3>
-            <p>夜サウナの照明でさりげなく光るミストホワイト。軽快な被り心地で女性サウナーにも人気。</p>
-            <div class="price">¥7,400</div>
-            <a class="btn btn-outline" href="#">Buy on Amazon</a>
-          </article>
-        </div>
-        <div class="lineup-more">
-          <a class="btn btn-outline" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">All Items / すべての商品を見る</a>
+        <div class="product-series-grid">
+          <!-- 1: 正方形（商品1） -->
+          <a href="#" class="product-series-item product-series-item--square">
+            <img src="画像/商品シリーズ/商品1.jpg" alt="極厚6cmタイプ ゲルクッション" loading="lazy" />
+          </a>
+
+          <!-- 2: 横長（商品2） -->
+          <a href="#" class="product-series-item product-series-item--wide">
+            <img src="画像/商品シリーズ/商品2.jpg" alt="大判タイプ ゲルクッション" loading="lazy" />
+          </a>
+
+          <!-- 3: 横長（商品3） -->
+          <a href="#" class="product-series-item product-series-item--wide">
+            <img src="画像/商品シリーズ/商品3.jpg" alt="通常タイプ ゲルクッション" loading="lazy" />
+          </a>
+
+          <!-- 4: 横長（商品4） -->
+          <a href="#" class="product-series-item product-series-item--wide">
+            <img src="画像/商品シリーズ/商品4.jpg" alt="カラーカバータイプ ゲルクッション" loading="lazy" />
+          </a>
+
+          <!-- 5: 横長（商品5） -->
+          <a href="#" class="product-series-item product-series-item--wide">
+            <img src="画像/商品シリーズ/商品5.jpg" alt="ドーナツ型タイプ ゲルクッション" loading="lazy" />
+          </a>
+
+          <!-- 6: 正方形（商品6） -->
+          <a href="#" class="product-series-item product-series-item--square">
+            <img src="画像/商品シリーズ/商品6.jpg" alt="低反発クッション" loading="lazy" />
+          </a>
         </div>
       </section>
 
-      <section class="concept-visual fade-up" aria-labelledby="concept-visual-title">
-        <span class="section-eyebrow">Concept</span>
-        <h2 class="section-title" id="concept-visual-title">Sauna Crownの世界観をそのまま被る。</h2>
-        <figure>
-          <img src="画像/ブランドイメージ.png" alt="Sauna Crown ブランドイメージ" />
-        </figure>
+
+
+      <section class="message-section">
+        <article class="concept-hero">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">BRAND CONCEPT</p>
+              <h2>ブランドコンセプト</h2>
+            </div>
+          </div>
+          <div class="concept-image-wrapper">
+            <img src="画像/ブランドコンセプト.png" alt="ブランドコンセプト" />
+            <div class="concept-copy">
+              <h3>透明感のある上質さで、正しい心地をデザインする。</h3>
+              <p>relax heal は、医療の現場で得た知見をもとに「座りすぎ」を整えるプロダクトを開発。ゲルと低反発のレイヤー、肌にとろけるカバー、そして空間に馴染むカラーで、姿勢とメンタルを優しく支えます。</p>
+            </div>
+          </div>
+        </article>
       </section>
 
-      <section class="issues fade-up" id="issues">
-        <span class="section-eyebrow">Issues / Journal</span>
-        <h2 class="section-title">整うメカニズムを掘る、Sauna Crownの視点。</h2>
-        <div class="issues-grid">
-          <article class="issue-card">
-            <small class="tag">ISSUE 01</small>
-            <figure class="issue-thumb">
-              <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=800&q=80" alt="熱気が立ち上るサウナ室" loading="lazy" />
-            </figure>
-            <h4>整うって結局なに？自律神経へのアプローチ</h4>
-            <p>交感神経と副交感神経の波をどうサポートするか。Sauna Crownの深被り設計を解剖。</p>
-            <a class="btn btn-outline" href="issues/autonomic.html">Read More</a>
-          </article>
-          <article class="issue-card">
-            <small class="tag">ISSUE 02</small>
-            <figure class="issue-thumb">
-              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="テントサウナの熱気" loading="lazy" />
-            </figure>
-            <h4>テントサウナで頭部を守る理由</h4>
-            <p>ロウリュ熱の直撃から頭部を逃がすギアとして、サウナハットの役割を検証。</p>
-            <a class="btn btn-outline" href="issues/tent.html">Read More</a>
-          </article>
-          <article class="issue-card">
-            <small class="tag">JOURNAL</small>
-            <figure class="issue-thumb">
-              <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80" alt="サウナハットを手に取るシーン" loading="lazy" />
-            </figure>
-            <h4>サウナハットの選び方 3つのポイント</h4>
-            <p>シルエット・素材・カラー。通サウナー目線で押さえるべき指標をピックアップ。</p>
-            <a class="btn btn-outline" href="issues/choice.html">Read More</a>
-          </article>
+      <aside class="category-panel-mobile">
+        <div class="category-head">
+          <p class="eyebrow">CATEGORY</p>
+          <h3>商品カテゴリー</h3>
         </div>
-      </section>
+        <a class="category-all-btn" href="#">すべての商品を見る</a>
+        <div class="category-item is-open">
+          <button aria-expanded="true">ゲルクッション</button>
+          <ul class="category-children">
+            <li><a href="#">通常サイズ</a></li>
+            <li><a href="#">大判サイズ</a></li>
+            <li><a href="#">カラーカバー</a></li>
+            <li><a href="#">極厚タイプ</a></li>
+            <li><a href="#">ドーナツ型</a></li>
+          </ul>
+        </div>
+        <div class="category-item">
+          <button aria-expanded="false">低反発</button>
+        </div>
+        <div class="category-item">
+          <button aria-expanded="false">首枕</button>
+        </div>
+      </aside>
 
-      <section class="cta fade-up" id="cta">
-        <h2 class="section-title">あなたの“ととのう時間”に、Sauna Crownを。</h2>
-        <p>
-          本格的にサウナを楽しみたい。でも、おしゃれさも妥協したくない。Sauna Crownはそんなサウナーのためのサウナハットをラインナップしています。
-        </p>
-        <div class="hero-actions" style="margin-top: 24px;">
-          <a class="btn" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Sauna Crown のAmazonストアへ</a>
+      <article class="commitment-card">
+        <div class="signature-visual">
+          <img src="画像/commitment.jpg" alt="リラックスヒールのこだわり" loading="lazy" />
+        </div>
+        <div class="commitment-text">
+          <p class="eyebrow">RELAX HEAL SIGNATURE</p>
+          <h2>リラックスヒールが大切にしている3つのこと</h2>
+          <div class="signature-points">
+            <section>
+              <h3>1. 医療監修ライン</h3>
+              <p>骨盤と尾骨のラインを毎シーズン検証し、体圧が分散される角度を算出。</p>
+            </section>
+            <section>
+              <h3>2. 日常を邪魔しない触感</h3>
+              <p>さらりとした肌触りと、通気性を保つグリッド配置で長時間でも快適。</p>
+            </section>
+            <section>
+              <h3>3. 空間に調和するカラー</h3>
+              <p>ピュアホワイトからグレージュまで同系色でまとめ、ワークスペースにも馴染ませます。</p>
+            </section>
+          </div>
+        </div>
+      </article>
+
+      <section class="news-section" id="news">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">NEWS</p>
+            <h2>お知らせ</h2>
+          </div>
+        </div>
+        <div class="news-grid">
+          <article>
+            <div class="news-date">
+              <p class="date">2025.09.01</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">読売テレビ「バズるの泉」で卵が割れない座り心地が特集されました</a>
+              <p>スタジオでの実験を通じて、ゲルクッションの圧分散構造と開発ストーリーが紹介されました。放送直後からお問い合わせが急増しています。</p>
+            </div>
+          </article>
+          <article>
+            <div class="news-date">
+              <p class="date">2025.01.10</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">「2025年ヒットの予感」特集に選ばれました</a>
+              <p>暮らしを変えるアイテムとして、relax heal のゲルクッションが掲載。座る姿勢そのものをデザインするブランドとして評価されています。</p>
+            </div>
+          </article>
+          <article>
+            <div class="news-date">
+              <p class="date">2023.10.01</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">楽天リアルタイムランキング（クッション）で第1位を獲得</a>
+              <p>在宅ワーク需要の高まりと口コミが追い風となり、リアルタイムランキングで1位に。長時間座りの悩みを解消したという声が多数届いています。</p>
+            </div>
+          </article>
+          <article>
+            <div class="news-date">
+              <p class="date">2020.09.18</p>
+            </div>
+            <div class="news-body">
+              <a href="#" class="news-title">人気YouTuberばばしさんのレビュー動画が公開</a>
+              <p>全国を走る女性トラックドライバー・ばばしさんに使っていただき、長距離運転が楽になったというリアルな声を紹介いただきました。</p>
+            </div>
+          </article>
         </div>
       </section>
     </main>
+  </div>
 
-    <footer>
-      <div class="logo" style="margin-bottom: 12px;">
-        <img src="ロゴ/s-nega.jpg" alt="Sauna Crown ロゴ" class="logo-img" style="height: 28px;" />
-        <span>SAUNA CROWN</span>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">RELAX HEAL</div>
+          <p>医療監修のゲルクッションと姿勢ケア雑貨をお届けするウェルネスブランドです。</p>
+        </div>
+        <div>
+          <h4>ご利用ガイド</h4>
+          <ul>
+            <li><a href="#">初めての方へ</a></li>
+            <li><a href="#">ご利用ガイド</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#">特定商取引法に基づく表示</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>サポート</h4>
+          <ul>
+            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="#">返品・交換について</a></li>
+            <li><a href="#">配送ポリシー</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow Us</h4>
+          <div class="footer-sns">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="X">X</a>
+            <a href="#" aria-label="LINE">LI</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#store">Store</a>
-        <a href="#concept">Concept</a>
-        <a href="#media">Media</a>
-        <a href="issues/index.html">Issues</a>
-        <a href="#lineup">Lineup</a>
+      <div class="footer-bottom">
+        <p>© 2024 RELAX HEAL All Rights Reserved.</p>
       </div>
-      <small>© Sauna Crown 2025</small>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-      (() => {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => section.classList.add('fade-up'));
-
-        const observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
-
-        sections.forEach(section => observer.observe(section));
-
-        const hamburger = document.querySelector('.hamburger');
-        const mobileNav = document.querySelector('.mobile-nav');
-        hamburger?.addEventListener('click', () => {
-          mobileNav.classList.toggle('open');
-        });
-
-        mobileNav?.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => mobileNav.classList.remove('open'));
-        });
-      })();
-    </script>
-  </body>
+  <script src="js/script.js"></script>
+</body>
 </html>
