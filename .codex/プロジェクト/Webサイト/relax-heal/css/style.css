@@ -425,6 +425,14 @@ img {
   display: none;
 }
 
+.category-panel-mobile .category-head {
+  margin-bottom: 16px;
+}
+
+.category-panel-mobile .category-head h3 {
+  margin-top: 4px;
+}
+
 @media (max-width: 768px) {
   .category-panel-mobile {
     display: block;
@@ -683,13 +691,13 @@ img {
 
 .media-magazine-card {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  flex-direction: row;
+  gap: 24px;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 20px 40px rgba(20, 45, 70, 0.08);
   background: #fff;
-  padding: 20px;
+  padding: 32px;
   align-items: flex-start;
 }
 
@@ -699,7 +707,7 @@ img {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   align-items: flex-start;
-  max-width: 200px;
+  max-width: 400px;
 }
 
 .magazine-images img {
@@ -739,12 +747,12 @@ img {
 @media (max-width: 768px) {
   .media-magazine-card {
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
+    gap: 16px;
+    padding: 20px;
   }
   .magazine-images {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 180px;
+    max-width: 300px;
     margin: 0 auto;
   }
   .magazine-copy {
@@ -1023,13 +1031,12 @@ img {
   font-size: 14px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .main-wrapper {
     grid-template-columns: 1fr;
   }
   .category-panel {
-    position: relative;
-    top: auto;
+    display: none;
   }
   .product-area > * {
     order: 0;
@@ -1049,7 +1056,7 @@ img {
   .message-section {
     order: 5;
   }
-  .category-panel {
+  .category-panel-mobile {
     order: 6;
   }
   .commitment-card {
