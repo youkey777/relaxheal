@@ -1,0 +1,25 @@
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+
+# Large video files (exclude all video files from assets/videos)
+assets/videos/*.avi
+assets/videos/*.mov
+assets/videos/*.mp4
+assets/videos/*.webm
+# Only exclude original large files from 画像/メディア一覧, allow converted ones
+画像/メディア一覧/*.avi
+画像/メディア一覧/*.mov
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
