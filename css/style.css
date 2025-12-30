@@ -609,7 +609,9 @@ section[id] {
 }
 
 .category-button-link {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   text-align: left;
   border: 1px solid var(--border);
@@ -627,6 +629,16 @@ section[id] {
   background: linear-gradient(135deg, rgba(94, 164, 255, 0.08), rgba(127, 211, 255, 0.12));
   border-color: var(--accent);
   color: var(--accent-strong);
+}
+
+.category-arrow {
+  font-size: 1.1em;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.category-button-link:hover .category-arrow {
+  transform: translateX(4px);
 }
 
 /* PC時のみカテゴリー固定 */
@@ -1747,4 +1759,46 @@ section[id] {
   .product-series-item:nth-child(6) { order: 4; }
   .product-series-item:nth-child(4) { order: 5; }
   .product-series-item:nth-child(5) { order: 6; }
+}
+
+/* Mobile hamburger menu - All products link */
+.nav-all-products {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+}
+
+/* Mobile sidebar button links */
+@media (max-width: 768px) {
+  .category-button-link-mobile {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--border);
+    background: var(--panel-soft);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .category-button-link-mobile:active {
+    background: linear-gradient(135deg, rgba(94, 164, 255, 0.08), rgba(127, 211, 255, 0.12));
+    border-color: var(--accent);
+  }
+}
+
+/* Fix scroll position for concept section */
+#concept {
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 768px) {
+  #concept {
+    scroll-margin-top: 100px;
+  }
 }
