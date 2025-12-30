@@ -1,0 +1,183 @@
+{
+  "categories": {
+    "normal": {
+      "name": "通常サイズ",
+      "slug": "normal",
+      "products": [
+        {
+          "asin": "B0873ZVV4G",
+          "name": "ゲルクッション 通常サイズ",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B0873ZVV4G"
+        },
+        {
+          "asin": "B08PY2QG3S",
+          "name": "カラーカバーゲルクッション（ネイビー）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY2QG3S"
+        },
+        {
+          "asin": "B08PY8S19Z",
+          "name": "カラーカバーゲルクッション（グレー）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY8S19Z"
+        },
+        {
+          "asin": "B08PY3NWDV",
+          "name": "カラーカバーゲルクッション（ベージュ）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY3NWDV"
+        },
+        {
+          "asin": "B08RN4BNXJ",
+          "name": "ゲルクッション 通常×極厚タイプ",
+          "price": 4680,
+          "url": "https://www.amazon.co.jp/dp/B08RN4BNXJ"
+        }
+      ]
+    },
+    "large": {
+      "name": "大判サイズ",
+      "slug": "large",
+      "products": [
+        {
+          "asin": "B083JG73P9",
+          "name": "ゲルクッション 大判サイズ",
+          "price": 4380,
+          "url": "https://www.amazon.co.jp/dp/B083JG73P9"
+        },
+        {
+          "asin": "B087427NXY",
+          "name": "ゲルクッション 大判サイズ（ブラック）",
+          "price": 4380,
+          "url": "https://www.amazon.co.jp/dp/B087427NXY"
+        },
+        {
+          "asin": "B09BFY2V8N",
+          "name": "ゲルクッション 大判×極厚タイプ",
+          "price": 5980,
+          "url": "https://www.amazon.co.jp/dp/B09BFY2V8N"
+        }
+      ]
+    },
+    "color-cover": {
+      "name": "カラーカバー",
+      "slug": "color-cover",
+      "products": [
+        {
+          "asin": "B08PY2QG3S",
+          "name": "カラーカバーゲルクッション（ネイビー）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY2QG3S"
+        },
+        {
+          "asin": "B08PY8S19Z",
+          "name": "カラーカバーゲルクッション（グレー）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY8S19Z"
+        },
+        {
+          "asin": "B088F8JZD7",
+          "name": "カラーカバーゲルクッション（ブラック）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B088F8JZD7"
+        },
+        {
+          "asin": "B08PY3NWDV",
+          "name": "カラーカバーゲルクッション（ベージュ）",
+          "price": 3680,
+          "url": "https://www.amazon.co.jp/dp/B08PY3NWDV"
+        }
+      ]
+    },
+    "thick": {
+      "name": "極厚タイプ",
+      "slug": "thick",
+      "products": [
+        {
+          "asin": "B09BFY2V8N",
+          "name": "ゲルクッション 大判×極厚タイプ",
+          "price": 5980,
+          "url": "https://www.amazon.co.jp/dp/B09BFY2V8N"
+        },
+        {
+          "asin": "B08RN4BNXJ",
+          "name": "ゲルクッション 通常×極厚タイプ",
+          "price": 4680,
+          "url": "https://www.amazon.co.jp/dp/B08RN4BNXJ"
+        },
+        {
+          "asin": "B0CMCLDC6K",
+          "name": "ドーナツゲル 大判×極厚タイプ",
+          "price": 5980,
+          "url": "https://www.amazon.co.jp/dp/B0CMCLDC6K"
+        }
+      ]
+    },
+    "donut": {
+      "name": "ドーナツ型",
+      "slug": "donut",
+      "products": [
+        {
+          "asin": "B099DZX1K3",
+          "name": "ドーナツゲル 通常サイズ",
+          "price": 3980,
+          "url": "https://www.amazon.co.jp/dp/B099DZX1K3"
+        },
+        {
+          "asin": "B0CMCLDC6K",
+          "name": "ドーナツゲル 大判×極厚タイプ",
+          "price": 5980,
+          "url": "https://www.amazon.co.jp/dp/B0CMCLDC6K"
+        }
+      ]
+    },
+    "low-rebound": {
+      "name": "低反発",
+      "slug": "low-rebound",
+      "products": [
+        {
+          "asin": "B0CP71WL74",
+          "name": "プレミアム低反発クッション",
+          "price": 5380,
+          "url": "https://www.amazon.co.jp/dp/B0CP71WL74"
+        }
+      ]
+    },
+    "neck-stretcher": {
+      "name": "ネックストレッチャー",
+      "slug": "neck-stretcher",
+      "products": [
+        {
+          "asin": "B0CP736JBN",
+          "name": "ネックストレッチャー",
+          "price": 2980,
+          "url": "https://www.amazon.co.jp/dp/B0CP736JBN"
+        }
+      ]
+    }
+  },
+  "newArrivals": [
+    {
+      "asin": "B08RN4BNXJ",
+      "name": "ゲルクッション 通常×極厚タイプ",
+      "price": 4680,
+      "url": "https://www.amazon.co.jp/dp/B08RN4BNXJ",
+      "badge": "新商品"
+    },
+    {
+      "asin": "B0CMCLDC6K",
+      "name": "ドーナツゲル 大判×極厚タイプ",
+      "price": 5980,
+      "url": "https://www.amazon.co.jp/dp/B0CMCLDC6K",
+      "badge": "新商品"
+    },
+    {
+      "asin": "B0CP71WL74",
+      "name": "プレミアム低反発クッション",
+      "price": 5380,
+      "url": "https://www.amazon.co.jp/dp/B0CP71WL74",
+      "badge": "新商品"
+    }
+  ]
+}

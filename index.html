@@ -10,12 +10,8 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="header-top">
-      <div class="header-inner">
-        <img src="画像/ロゴ/linkedin_banner_image_1.png" alt="RELAX HEAL" class="logo-image" />
-      </div>
-    </div>
-    <div class="nav-bar">
+    <div class="header-inner">
+      <img src="画像/ロゴ/linkedin_banner_image_1.png" alt="RELAX HEAL" class="logo-image" />
       <button class="hamburger-btn" aria-label="メニュー" aria-expanded="false">
         <span></span>
         <span></span>
@@ -26,13 +22,13 @@
           <li class="has-dropdown">
             <a href="#">商品カテゴリー</a>
             <div class="dropdown-panel">
-              <a href="#">ゲルクッション - 通常サイズ</a>
-              <a href="#">ゲルクッション - 大判サイズ</a>
-              <a href="#">ゲルクッション - カラーカバー</a>
-              <a href="#">ゲルクッション - 極厚タイプ</a>
-              <a href="#">ゲルクッション - ドーナツ型</a>
-              <a href="#">低反発</a>
-              <a href="#">首枕</a>
+              <a href="categories/normal.html">ゲルクッション - 通常サイズ</a>
+              <a href="categories/large.html">ゲルクッション - 大判サイズ</a>
+              <a href="categories/color-cover.html">ゲルクッション - カラーカバー</a>
+              <a href="categories/thick.html">ゲルクッション - 極厚タイプ</a>
+              <a href="categories/donut.html">ゲルクッション - ドーナツ型</a>
+              <a href="categories/low-rebound.html">低反発</a>
+              <a href="categories/neck-stretcher.html">ネックストレッチャー</a>
             </div>
           </li>
           <li><a href="#media">メディア掲載</a></li>
@@ -83,18 +79,18 @@
       <div class="category-item is-open is-locked">
         <button aria-expanded="true">ゲルクッション</button>
         <ul class="category-children">
-          <li><a href="#">通常サイズ</a></li>
-          <li><a href="#">大判サイズ</a></li>
-          <li><a href="#">カラーカバー</a></li>
-          <li><a href="#">極厚タイプ</a></li>
-          <li><a href="#">ドーナツ型</a></li>
+          <li><a href="categories/normal.html">通常サイズ</a></li>
+          <li><a href="categories/large.html">大判サイズ</a></li>
+          <li><a href="categories/color-cover.html">カラーカバー</a></li>
+          <li><a href="categories/thick.html">極厚タイプ</a></li>
+          <li><a href="categories/donut.html">ドーナツ型</a></li>
         </ul>
       </div>
       <div class="category-item">
-        <button aria-expanded="false">低反発</button>
+        <button aria-expanded="false"><a href="categories/low-rebound.html" style="color: inherit; text-decoration: none;">低反発</a></button>
       </div>
       <div class="category-item">
-        <button aria-expanded="false">首枕</button>
+        <button aria-expanded="false"><a href="categories/neck-stretcher.html" style="color: inherit; text-decoration: none;">ネックストレッチャー</a></button>
       </div>
     </aside>
 
@@ -151,7 +147,7 @@
             <p class="eyebrow">RELAX HEAL × NAKAMURA CLINIC</p>
             <h2>医療監修の信頼と実績</h2>
           </div>
-          <a href="https://nekoze-kyoto.jp/" target="_blank" rel="noopener" class="btn-link">中村接骨院を確認</a>
+          <a href="https://nekoze-kyoto.jp/" target="_blank" rel="noopener noreferrer" class="btn-link">中村接骨院を確認</a>
         </div>
         <div class="supervision-grid">
           <div class="image-frame">
@@ -169,33 +165,32 @@
             <p class="eyebrow">NEW ARRIVAL</p>
             <h2>新着アイテム</h2>
           </div>
-          <a href="#" class="btn-link">もっと見る</a>
         </div>
         <div class="product-grid three-up">
-          <article class="product-card">
-            <span class="product-badge">新商品</span>
-            <img src="画像/新着商品/新着1NEW.jpg" alt="新着ゲルクッション 1" />
-            <h3>プレミアムゲル TWIN</h3>
-            <p class="price">¥4,980</p>
-          </article>
-          <article class="product-card">
-            <span class="product-badge limited">数量限定</span>
-            <img src="画像/新着商品/新着2NEW.jpg" alt="新着ゲルクッション 2" />
-            <h3>ハニカムビッグタイプ</h3>
-            <p class="price">¥5,280</p>
-          </article>
-          <article class="product-card">
-            <span class="product-badge">新商品</span>
-            <img src="画像/新着商品/新着3NEW.png" alt="新着ゲルクッション 3" />
-            <h3>ドライバーズサポート</h3>
-            <p class="price">¥3,960</p>
-          </article>
-          <article class="product-card mobile-only">
-            <span class="product-badge">新商品</span>
-            <img src="画像/新着商品/新着商品4.jpg" alt="新着ゲルクッション 4" />
-            <h3>コンフォートプラス</h3>
-            <p class="price">¥4,580</p>
-          </article>
+          <a href="https://www.amazon.co.jp/dp/B08RN4BNXJ" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+            <article class="product-card">
+              <span class="product-badge">新商品</span>
+              <img src="画像/新着商品/新着1NEW.jpg" alt="ゲルクッション 通常×極厚タイプ" />
+              <h3>ゲルクッション 通常×極厚タイプ</h3>
+              <p class="price">¥4,680</p>
+            </article>
+          </a>
+          <a href="https://www.amazon.co.jp/dp/B0CMCLDC6K" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+            <article class="product-card">
+              <span class="product-badge">新商品</span>
+              <img src="画像/新着商品/新着2NEW.jpg" alt="ドーナツゲル 大判×極厚タイプ" />
+              <h3>ドーナツゲル 大判×極厚タイプ</h3>
+              <p class="price">¥5,980</p>
+            </article>
+          </a>
+          <a href="https://www.amazon.co.jp/dp/B0CP71WL74" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+            <article class="product-card">
+              <span class="product-badge">新商品</span>
+              <img src="画像/新着商品/新着3NEW.png" alt="プレミアム低反発クッション" />
+              <h3>プレミアム低反発クッション</h3>
+              <p class="price">¥5,380</p>
+            </article>
+          </a>
         </div>
       </section>
       <section class="product-series-block" id="product-series">
@@ -208,32 +203,32 @@
 
         <div class="product-series-grid">
           <!-- 1: 正方形（商品1） -->
-          <a href="#" class="product-series-item product-series-item--square">
+          <a href="categories/thick.html" class="product-series-item product-series-item--square">
             <img src="画像/商品シリーズ/商品1.jpg" alt="極厚6cmタイプ ゲルクッション" loading="lazy" />
           </a>
 
           <!-- 2: 横長（商品2） -->
-          <a href="#" class="product-series-item product-series-item--wide">
+          <a href="categories/large.html" class="product-series-item product-series-item--wide">
             <img src="画像/商品シリーズ/商品2.jpg" alt="大判タイプ ゲルクッション" loading="lazy" />
           </a>
 
           <!-- 3: 横長（商品3） -->
-          <a href="#" class="product-series-item product-series-item--wide">
+          <a href="categories/normal.html" class="product-series-item product-series-item--wide">
             <img src="画像/商品シリーズ/商品3.jpg" alt="通常タイプ ゲルクッション" loading="lazy" />
           </a>
 
           <!-- 4: 横長（商品4） -->
-          <a href="#" class="product-series-item product-series-item--wide">
+          <a href="categories/color-cover.html" class="product-series-item product-series-item--wide">
             <img src="画像/商品シリーズ/商品4.jpg" alt="カラーカバータイプ ゲルクッション" loading="lazy" />
           </a>
 
           <!-- 5: 横長（商品5） -->
-          <a href="#" class="product-series-item product-series-item--wide">
+          <a href="categories/donut.html" class="product-series-item product-series-item--wide">
             <img src="画像/商品シリーズ/商品5.jpg" alt="ドーナツ型タイプ ゲルクッション" loading="lazy" />
           </a>
 
           <!-- 6: 正方形（商品6） -->
-          <a href="#" class="product-series-item product-series-item--square">
+          <a href="categories/low-rebound.html" class="product-series-item product-series-item--square">
             <img src="画像/商品シリーズ/商品6.jpg" alt="低反発クッション" loading="lazy" />
           </a>
         </div>

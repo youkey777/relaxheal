@@ -56,22 +56,18 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: var(--panel);
+  background: #ffffff;
   box-shadow: 0 20px 40px rgba(23, 39, 73, 0.08);
-}
-
-.header-top {
-  background: #e8f3ff;
-  padding: 10px 24px;
-  font-size: 14px;
 }
 
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  padding: 16px 24px;
+  gap: 24px;
 }
 
 .logo-text {
@@ -80,7 +76,7 @@ section[id] {
 }
 
 .logo-image {
-  height: 60px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -89,24 +85,13 @@ section[id] {
 
 @media (max-width: 768px) {
   .logo-image {
-    height: 48px;
+    height: 64px;
   }
 }
 
-.quick-links a {
-  margin-left: 18px;
-  color: var(--text);
-  font-size: 13px;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  gap: 24px;
+/* デスクトップ時はナビゲーション表示 */
+.global-nav {
+  display: block;
 }
 
 .global-nav ul {
