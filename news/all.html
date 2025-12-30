@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>お知らせ一覧 - RELAX HEAL</title>
+  <title>お知らせ一覧 - relax heal</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html#" class="logo-link">
-        <img src="../画像/ロゴ/linkedin_banner_image_1.png" alt="RELAX HEAL" class="logo-image" />
+        <img src="../画像/ロゴ/linkedin_banner_image_1.png" alt="relax heal" class="logo-image" />
       </a>
       <button class="hamburger-btn" aria-label="メニュー" aria-expanded="false">
         <span></span>
@@ -62,7 +62,7 @@
 
       <div class="category-header">
         <h1>お知らせ</h1>
-        <p>RELAX HEALの最新情報をお届けします。</p>
+        <p>relax healの最新情報をお届けします。</p>
       </div>
 
       <!-- お知らせ一覧 -->
@@ -116,7 +116,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div>
-          <h3 class="footer-logo">RELAX HEAL</h3>
+          <h3 class="footer-logo">relax heal</h3>
           <p style="margin-top: 8px; font-size: 14px;">快適な座り心地を追求したゲルクッション</p>
         </div>
         <div>
@@ -146,7 +146,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 RELAX HEAL. All rights reserved.</p>
+        <p>&copy; 2025 relax heal. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -154,8 +154,56 @@
   <script src="../js/script.js"></script>
 
   <style>
+    .category-page {
+      background: var(--bg);
+      min-height: 80vh;
+      padding-top: 80px;
+    }
+
+    .category-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .category-header {
+      margin-bottom: 40px;
+    }
+
+    .category-header h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .category-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .news-list-section {
-      margin-top: 40px;
+      margin-top: 0;
     }
 
     .news-list-section .news-grid {
@@ -163,8 +211,20 @@
       gap: 24px;
     }
 
-    /* モバイルでも同じデザイン */
+    /* モバイル対応 */
     @media (max-width: 768px) {
+      .category-page {
+        padding-top: 60px;
+      }
+
+      .category-container {
+        padding: 24px 16px 60px;
+      }
+
+      .category-header h1 {
+        font-size: 1.5rem;
+      }
+
       .news-list-section .news-grid {
         gap: 20px;
       }
