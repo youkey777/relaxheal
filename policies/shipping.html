@@ -22,13 +22,23 @@
           <li class="has-dropdown">
             <a href="#">商品カテゴリー</a>
             <div class="dropdown-panel">
-              <a href="../categories/normal.html">ゲルクッション - 通常サイズ</a>
-              <a href="../categories/large.html">ゲルクッション - 大判サイズ</a>
-              <a href="../categories/color-cover.html">ゲルクッション - カラーカバー</a>
-              <a href="../categories/thick.html">ゲルクッション - 極厚タイプ</a>
-              <a href="../categories/donut.html">ゲルクッション - ドーナツ型</a>
-              <a href="../categories/low-rebound.html">低反発クッション</a>
-              <a href="../categories/neck-stretcher.html">ネックストレッチャー</a>
+              <div class="dropdown-category">
+                <button class="dropdown-category-btn" data-category="gel">
+                  <span>ゲルクッション</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </button>
+                <div class="dropdown-subcategories">
+                  <a href="../categories/normal.html">通常サイズ</a>
+                  <a href="../categories/large.html">大判サイズ</a>
+                  <a href="../categories/color-cover.html">カラーカバー</a>
+                  <a href="../categories/thick.html">極厚タイプ</a>
+                  <a href="../categories/donut.html">ドーナツ型</a>
+                </div>
+              </div>
+              <a href="../categories/low-rebound.html" class="dropdown-category-link">低反発クッション</a>
+              <a href="../categories/neck-stretcher.html" class="dropdown-category-link">ネックストレッチャー</a>
             </div>
           </li>
           <li><a href="../index.html#media">メディア掲載</a></li>
@@ -80,12 +90,14 @@
 
         <section class="policy-section">
           <h2>配送期間</h2>
-          <p>ご注文確定後、通常<strong>2〜5営業日以内</strong>に発送いたします。</p>
-          <p>お届け予定日は、ご購入いただくプラットフォームの商品ページでご確認いただけます。</p>
-          <p><strong>配送期間の目安（プラットフォームにより異なります）：</strong></p>
+          <p><strong>お届け予定日については、ご購入時に各プラットフォームの商品ページに表示される配送日をご確認ください。</strong></p>
+          <p>AmazonやRakutenでは、条件により早ければ翌日配送も可能です。</p>
+          <p><strong>配送期間の目安（プラットフォームや条件により異なります）：</strong></p>
           <ul>
-            <li>通常配送：ご注文から3〜7日程度</li>
-            <li>お急ぎ便：ご注文から1〜3日程度（対応プラットフォームのみ）</li>
+            <li><strong>Amazon Prime会員・対象商品：</strong>最短翌日配送</li>
+            <li><strong>楽天市場：</strong>最短翌日配送（条件により異なります）</li>
+            <li><strong>通常配送：</strong>ご注文から2〜7日程度</li>
+            <li><strong>お急ぎ便：</strong>ご注文から1〜3日程度（対応プラットフォームのみ）</li>
           </ul>
           <p>※天候や交通状況、配送地域、在庫状況により前後する場合がございます。<br>
           ※年末年始やゴールデンウィークなどの連休期間は配送が遅れる場合がございます。</p>

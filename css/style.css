@@ -623,11 +623,22 @@ section[id] {
 /* PC時のみカテゴリー固定 */
 @media (min-width: 1024px) {
   .category-item.is-locked button {
-    background: var(--panel-soft);
-    border: 1px solid var(--border);
-    color: var(--text);
+    /* ボタンスタイルは維持するが、非アクティブな外観にする */
+    background: rgba(247, 251, 255, 0.5);
+    border: 1px solid rgba(224, 240, 255, 0.6);
+    color: rgba(32, 64, 92, 0.4);
     cursor: default;
     pointer-events: none;
+    transition: none;
+    opacity: 0.6;
+  }
+
+  /* is-openクラスでもロック時は薄い見た目を維持 */
+  .category-item.is-locked.is-open button {
+    background: linear-gradient(135deg, rgba(94, 164, 255, 0.04), rgba(127, 211, 255, 0.06));
+    border-color: rgba(94, 164, 255, 0.3);
+    color: rgba(94, 164, 255, 0.5);
+    opacity: 0.65;
   }
 
   .category-item.is-locked .category-children {
