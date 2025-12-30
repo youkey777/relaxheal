@@ -259,4 +259,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // =========================
+  // Hierarchical dropdown category toggle
+  // =========================
+  const dropdownCategoryBtns = document.querySelectorAll(".dropdown-category-btn");
+
+  dropdownCategoryBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const categoryDiv = btn.closest(".dropdown-category");
+      if (!categoryDiv) return;
+
+      const isOpen = categoryDiv.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", isOpen.toString());
+    });
+  });
+
 });
