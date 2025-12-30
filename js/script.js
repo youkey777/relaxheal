@@ -259,14 +259,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // アンカーリンククリック時にメニューを自動で閉じる
+    // アンカーリンククリック時にメニューを自動で閉じる（ドロップダウントグルは除外）
     const navLinks = globalNav.querySelectorAll('a[href^="#"]');
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        // ハンバーガーメニューを閉じる
-        hamburgerBtn.classList.remove('is-open');
-        globalNav.classList.remove('is-open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        // ドロップダウンの親要素かチェック（商品カテゴリーの場合は閉じない）
+        const isDropdownToggle = link.parentElement?.classList.contains('has-dropdown');
+
+        if (!isDropdownToggle) {
+          // ハンバーガーメニューを閉じる
+          hamburgerBtn.classList.remove('is-open');
+          globalNav.classList.remove('is-open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
       });
     });
   }
