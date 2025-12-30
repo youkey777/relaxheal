@@ -31,15 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMobileDevice = () => window.innerWidth < 1024;
 
     // PC用に複数クローンを生成、スマホは1つのみ
-    const clonesToCreate = isMobileDevice() ? 1 : 4;
+    const leftClonesToCreate = isMobileDevice() ? 1 : 4;
+    const rightClonesToCreate = isMobileDevice() ? 1 : 4;
 
-    // 左側にlastCloneを1つ
-    const lastClone = slides[slides.length - 1].cloneNode(true);
-    lastClone.classList.add("is-clone");
-    track.insertBefore(lastClone, slides[0]);
+    // 左側にクローンを追加（逆順で4,3,2,1）
+    for (let i = slideCount - 1; i >= Math.max(0, slideCount - leftClonesToCreate); i--) {
+      const clone = slides[i].cloneNode(true);
+      clone.classList.add("is-clone");
+      track.insertBefore(clone, track.firstChild);
+    }
 
-    // 右側に複数クローンを追加
-    for (let i = 0; i < clonesToCreate; i++) {
+    // 右側にクローンを追加（順順で1,2,3,4）
+    for (let i = 0; i < rightClonesToCreate; i++) {
       const clone = slides[i].cloneNode(true);
       clone.classList.add("is-clone");
       track.appendChild(clone);
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slides = Array.from(track.children);
 
-    let currentIndex = 1; // because of leading clone
+    let currentIndex = leftClonesToCreate; // PC: 4, モバイル: 1
     let isAnimating = false;
     let autoPlayInterval = null;
 
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // ドットの更新（クローンを除外）
-      const realIndex = ((currentIndex - 1 + slideCount) % slideCount);
+      const realIndex = ((currentIndex - leftClonesToCreate + slideCount) % slideCount);
       dots.forEach((dot, i) => {
         dot.classList.toggle("active", i === realIndex);
       });
@@ -124,10 +127,13 @@ document.addEventListener("DOMContentLoaded", () => {
           // スマホ：遅延ジャンプで「パチッ」緩和
           setTimeout(() => {
             track.style.transition = "none";
-            if (currentIndex === slides.length - 1) {
-              currentIndex = 1;
-            } else if (currentIndex === 0) {
-              currentIndex = slides.length - 2;
+            // 右端到達時
+            if (currentIndex >= slides.length - rightClonesToCreate) {
+              currentIndex = leftClonesToCreate;
+            }
+            // 左端到達時
+            else if (currentIndex < leftClonesToCreate) {
+              currentIndex = slides.length - rightClonesToCreate - 1;
             }
             updateCarousel();
             setTimeout(() => {
@@ -138,10 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           // PC：即座にジャンプ（次スライドとの連続感で目立たない）
           track.style.transition = "none";
-          if (currentIndex >= slides.length - clonesToCreate) {
-            currentIndex = 1;
-          } else if (currentIndex === 0) {
-            currentIndex = slides.length - clonesToCreate - 1;
+          // 右端到達時
+          if (currentIndex >= slides.length - rightClonesToCreate) {
+            currentIndex = leftClonesToCreate;
+          }
+          // 左端到達時
+          else if (currentIndex < leftClonesToCreate) {
+            currentIndex = slides.length - rightClonesToCreate - 1;
           }
           updateCarousel();
           setTimeout(() => {
@@ -159,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dots.forEach((dot, dotIndex) => {
       dot.addEventListener("click", () => {
         restartAutoPlay();
-        goToIndex(dotIndex + 1); // +1 because of leading clone
+        goToIndex(dotIndex + leftClonesToCreate); // クローン分オフセット
       });
     });
 
@@ -216,19 +225,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =========================
-  // Force media videos to stay muted
+  // Hamburger menu toggle
   // =========================
-  const mediaVideos = document.querySelectorAll("video.media-video");
+  const hamburgerBtn = document.querySelector(".hamburger-btn");
+  const globalNav = document.querySelector(".global-nav");
+  const mobileDropdowns = document.querySelectorAll(".global-nav .has-dropdown");
 
-  mediaVideos.forEach((video) => {
-    video.muted = true;
-    video.volume = 0;
+  if (hamburgerBtn && globalNav) {
+    hamburgerBtn.addEventListener("click", () => {
+      const isOpen = hamburgerBtn.classList.toggle("is-open");
+      globalNav.classList.toggle("is-open");
+      hamburgerBtn.setAttribute("aria-expanded", isOpen.toString());
+    });
 
-    video.addEventListener("volumechange", () => {
-      if (!video.muted || video.volume > 0) {
-        video.muted = true;
-        video.volume = 0;
+    // モバイルメニュー内のドロップダウントグル
+    mobileDropdowns.forEach((dropdown) => {
+      const link = dropdown.querySelector("a");
+      if (link && window.innerWidth <= 768) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle("is-open");
+        });
       }
     });
-  });
+
+    // メニュー外をクリックしたら閉じる
+    document.addEventListener("click", (e) => {
+      if (!globalNav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+        hamburgerBtn.classList.remove("is-open");
+        globalNav.classList.remove("is-open");
+        hamburgerBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
 });
