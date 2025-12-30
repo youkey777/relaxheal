@@ -257,6 +257,18 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburgerBtn.setAttribute("aria-expanded", "false");
       }
     });
+
+
+    // アンカーリンククリック時にメニューを自動で閉じる
+    const navLinks = globalNav.querySelectorAll('a[href^="#"]');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        // ハンバーガーメニューを閉じる
+        hamburgerBtn.classList.remove('is-open');
+        globalNav.classList.remove('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   // =========================
