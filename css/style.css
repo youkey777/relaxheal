@@ -73,7 +73,7 @@ section[id] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 24px;
+  padding: 7px 24px;
   gap: 24px;
 }
 
@@ -92,11 +92,11 @@ section[id] {
 
 @media (max-width: 768px) {
   .header-inner {
-    padding: 8px 20px;
+    padding: 5px 20px;
   }
 
   .logo-image {
-    height: 55px;
+    height: 56px;
   }
 }
 
