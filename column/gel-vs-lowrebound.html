@@ -2,6 +2,33 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var gaConfig = {};
+    try {
+      if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+      if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+      if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+    } catch (e) {}
+    gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+    if (location.search.indexOf('internal=') !== -1) {
+      window.addEventListener('DOMContentLoaded', function () {
+        var box = document.createElement('div');
+        box.setAttribute('role', 'status');
+        box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+        box.textContent = gaConfig.traffic_type === 'internal'
+          ? 'この端末は、アクセス数の集計から除外されます'
+          : '除外を解除しました。この端末のアクセスは集計に入ります';
+        document.body.appendChild(box);
+        setTimeout(function () { box.remove(); }, 8000);
+      });
+    }
+  </script>
+  <!-- /GA4 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ゲルクッションと低反発クッションの違いと選び方 | relax heal（リラックスヒール）公式コラム</title>
   <meta name="description" content="ゲルクッションと低反発クッションは何が違う？素材の特性・季節・体格・座る環境ごとの選び方を比較表つきでわかりやすく解説します。" />
@@ -336,6 +363,7 @@
             <li><a href="../policies/terms.html">特定商取引法に基づく表示</a></li>
             <li><a href="../policies/returns.html">返品・交換について</a></li>
             <li><a href="../policies/shipping.html">配送ポリシー</a></li>
+            <li><a href="https://www.aliba.online/policies/privacy/">プライバシーポリシー</a></li>
           </ul>
         </div>
         <div>
